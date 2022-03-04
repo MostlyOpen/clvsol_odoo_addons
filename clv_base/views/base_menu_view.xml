@@ -18,9 +18,4 @@
         groups="clv_base.group_manager"
         sequence="90"/>
 
-    <menuitem name="Global Settings" id="clv_base.menu_base_global_settings"
-        parent="clv_base.menu_base"
-        groups="clv_base.group_manager"
-        sequence="100"/>
-
 </odoo>

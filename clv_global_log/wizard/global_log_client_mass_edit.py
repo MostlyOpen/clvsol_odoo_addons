@@ -43,15 +43,6 @@ class GlobalLogCrientMassEdit(models.TransientModel):
         }
         return action
 
-    # @api.model
-    # def default_get(self, field_names):
-
-    #     defaults = super().default_get(field_names)
-
-    #     defaults['global_log_client_ids'] = self.env.context['active_ids']
-
-    #     return defaults
-
     def do_global_log_client_mass_edit(self):
         self.ensure_one()
 

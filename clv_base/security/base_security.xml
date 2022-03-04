@@ -20,14 +20,6 @@
         <field name="implied_ids" eval="[(4, ref('clv_base.group_user'))]"/>
     </record>
 
-    <record id="clv_base.group_annuser" model="res.groups">
-        <field name="name">Annotation User (Base)</field>
-        <field name="category_id" ref="module_base_category"/>
-        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
-        <field name="users" eval="[(4, ref('base.user_root')),
-                                   (4, ref('base.user_admin'))]"/>
-    </record>
-
     <record id="clv_base.group_reguser" model="res.groups">
         <field name="name">Register User (Base)</field>
         <field name="category_id" ref="module_base_category"/>
@@ -67,7 +59,6 @@
         <field name="name">Data Admin User</field>
         <field name="category_id" ref="module_base_category"/>
         <field name="implied_ids" eval="[(4, ref('clv_base.group_user')),
-                                         (4, ref('clv_base.group_annuser')),
                                          (4, ref('clv_base.group_reguser')),
                                          (4, ref('clv_base.group_loguser')),
                                          (4, ref('clv_base.group_manager'))]"/>

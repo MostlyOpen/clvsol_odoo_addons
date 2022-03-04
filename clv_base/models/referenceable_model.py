@@ -82,8 +82,6 @@ class AbstractReference(models.AbstractModel):
                     ref_name = False
                 ref_code = record.ref_id.code
                 record.ref_suport = record.ref_id._name + ',' + str(record.ref_id.id)
-                # if record.ref_name is False or record.ref_name != ref_name or \
-                #    record.ref_code is False or record.ref_code != ref_code:
                 if (record.ref_name is not False and record.ref_name != ref_name) or \
                    record.ref_code is False or record.ref_code != ref_code:
                     record = self.env[self._name].search([('id', '=', record.id)])

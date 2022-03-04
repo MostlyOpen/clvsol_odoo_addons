@@ -11,9 +11,6 @@
             <form>
                 <sheet>
                     <div name="button_box" class="oe_right oe_button_box">
-                        <!--button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive" groups="clv_base.group_reguser">
-                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
-                        </button-->
                     </div>
                     <div name="title" class="oe_title">
                         <label for="base_model"/>
@@ -73,7 +70,6 @@
         <field name="name">Referenceable Models</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">clv.referenceable.model</field>
-        <!--*field name="view_type">form</field-->
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="clv_referenceable_model_view_search"/>
         <field name="domain">[]</field>

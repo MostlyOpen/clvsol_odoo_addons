@@ -30,7 +30,6 @@
                             <field name="ref_suport" invisible="True"/>
                         </group>
                     </group>
-                    <!--field name="outcome_info" placeholder="Outcome Informations..." colspan="4"/-->
                     <notebook>
                         <page name="settings" string="Settings" groups="clv_base.group_reguser" invisible="False">
                             <group name="settings_top">

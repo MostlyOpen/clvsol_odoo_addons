@@ -21,6 +21,9 @@
                     </group>
                 </page>
             </page>
+            <group name="settings_left" position="inside">
+                <field name="id"/>
+            </group>
         </field>
     </record>
 
@@ -33,6 +36,9 @@
             <xpath expr="//tree" position="attributes">
                 <attribute name="string">Media File Markers</attribute>
             </xpath>
+            <field name="notes" position="after">
+                <field name="id"/>
+            </field>
         </field>
     </record>
 
@@ -45,6 +51,9 @@
             <xpath expr="//search" position="attributes">
                 <attribute name="string">Media File Markers</attribute>
             </xpath>
+            <field name="notes" position="after">
+                <field name="id"/>
+            </field>
         </field>
     </record>
 
@@ -52,7 +61,6 @@
         <field name="name">Media File Markers</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">clv.mfile.marker</field>
-        <!--*field name="view_type">form</field-->
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="clv_mfile_marker_view_search"/>
         <field name="domain">[]</field>
@@ -71,7 +79,7 @@
         <field name="inherit_id" ref="clv_mfile_view_tree"/>
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
-            <field name="code" position="after">
+            <field name="code" position="before">
                 <field name="marker_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
             </field>
         </field>
@@ -81,7 +89,7 @@
         <field name="name">clv.mfile.form</field>
         <field name="model">clv.mfile</field>
         <field name="inherit_id" ref="clv_mfile_view_form"/>
-        <field name="priority" eval="7"/>
+        <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <label for="name" position="before">
                 <label for="marker_ids" class="oe_edit_only"/>
@@ -98,10 +106,9 @@
         <field name="arch" type="xml">
             <field name="code" position="after">
                 <field name="marker_ids"/>
-                <field name="marker_names"/>
             </field>
             <group name="group_by" position="inside">
-                <filter name="filter_mfile_marker" string="Markers" context="{'group_by': 'marker_names'}"/>
+                <filter name="filter_marker_names" string="Markers" context="{'group_by': 'marker_names'}"/>
             </group>
         </field>
     </record>

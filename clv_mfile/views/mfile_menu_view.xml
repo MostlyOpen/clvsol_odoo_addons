@@ -21,11 +21,11 @@
         sequence="50"
         action="clv_mfile.clv_mfile_category_action"/>
 
-    <!--menuitem name="Media File Markers" id="clv_mfile.menu_mfiles_config_media_file_markers" 
+    <menuitem name="Media File Markers" id="clv_mfile.menu_mfiles_config_media_file_markers" 
         parent="clv_base.menu_mfiles_config"
         groups="clv_mfile.group_user"
         sequence="55"
-        action="clv_mfile.clv_mfile_marker_action"/-->
+        action="clv_mfile.clv_mfile_marker_action"/>
 
     <!--menuitem name="Media File Formats" id="clv_mfile.menu_mfiles_config_media_file_formats" 
         parent="clv_base.menu_mfiles_config"

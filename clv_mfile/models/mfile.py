@@ -38,7 +38,6 @@ class MediaFile(models.Model):
          )
     ]
 
-    # @api.one
     def _compute_path_str(self):
         self.ensure_one()
 

@@ -12,19 +12,6 @@ class MediaFileCategory(models.Model):
 
     code = fields.Char(string='Category Code', required=False)
 
-    # parent_id = fields.Many2one(
-    #     comodel_name='clv.mfile.category',
-    #     string='Parent Category',
-    #     index=True,
-    #     ondelete='restrict'
-    # )
-
-    # child_ids = fields.One2many(
-    #     comodel_name='clv.mfile.category',
-    #     inverse_name='parent_id',
-    #     string='Child Categories'
-    # )
-
     mfile_ids = fields.Many2many(
         comodel_name='clv.mfile',
         relation='clv_mfile_category_rel',
@@ -66,7 +53,6 @@ class MediaFile(models.Model):
         for r in self:
             r.category_names = r.category_names_suport
 
-    # @api.multi
     def _compute_category_names_suport(self):
         for r in self:
             category_names = False

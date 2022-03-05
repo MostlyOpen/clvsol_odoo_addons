@@ -15,11 +15,11 @@
         sequence="10"
         action="clv_mfile.clv_mfile_action"/>
 
-    <!--menuitem name="Media File Categories" id="clv_mfile.menu_mfiles_config_media_file_categories" 
+    <menuitem name="Media File Categories" id="clv_mfile.menu_mfiles_config_media_file_categories" 
         parent="clv_base.menu_mfiles_config"
         groups="clv_mfile.group_user"
         sequence="50"
-        action="clv_mfile.clv_mfile_category_action"/-->
+        action="clv_mfile.clv_mfile_category_action"/>
 
     <!--menuitem name="Media File Markers" id="clv_mfile.menu_mfiles_config_media_file_markers" 
         parent="clv_base.menu_mfiles_config"

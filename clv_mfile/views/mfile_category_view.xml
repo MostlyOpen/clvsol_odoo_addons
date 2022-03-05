@@ -21,6 +21,9 @@
                     </group>
                 </page>
             </page>
+            <group name="settings_left" position="inside">
+                <field name="id"/>
+            </group>
         </field>
     </record>
 
@@ -33,6 +36,9 @@
             <xpath expr="//tree" position="attributes">
                 <attribute name="string">Media File Categories</attribute>
             </xpath>
+            <field name="notes" position="after">
+                <field name="id"/>
+            </field>
         </field>
     </record>
 
@@ -45,6 +51,9 @@
             <xpath expr="//search" position="attributes">
                 <attribute name="string">Media File Categories</attribute>
             </xpath>
+            <field name="notes" position="after">
+                <field name="id"/>
+            </field>
         </field>
     </record>
 
@@ -52,7 +61,6 @@
         <field name="name">Media File Categories</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">clv.mfile.category</field>
-        <!--*field name="view_type">form</field-->
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="clv_mfile_category_view_search"/>
         <field name="domain">[]</field>

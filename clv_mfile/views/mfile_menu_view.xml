@@ -27,10 +27,10 @@
         sequence="55"
         action="clv_mfile.clv_mfile_marker_action"/>
 
-    <!--menuitem name="Media File Formats" id="clv_mfile.menu_mfiles_config_media_file_formats" 
+    <menuitem name="Media File Formats" id="clv_mfile.menu_mfiles_config_media_file_formats" 
         parent="clv_base.menu_mfiles_config"
         groups="clv_mfile.group_user"
         sequence="60"
-        action="clv_mfile.clv_mfile_format_action"/-->
+        action="clv_mfile.clv_mfile_format_action"/>
 
 </odoo>

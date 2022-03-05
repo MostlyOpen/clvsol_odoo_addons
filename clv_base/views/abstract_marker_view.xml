@@ -25,7 +25,7 @@
                         <page name="settings" string="Settings" groups="clv_base.group_reguser" invisible="False">
                             <group name="settings_top">
                                 <group name="settings_left">
-                                    <field name="id"/>
+                                    <!--field name="id"/-->
                                 </group>
                                 <group name='settings_right'>
                                     <div class="oe_button_box" name="settings_buttons">

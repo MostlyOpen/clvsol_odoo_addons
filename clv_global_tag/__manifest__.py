@@ -12,15 +12,12 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_base',
-        # 'clv_global_log',
     ],
     'data': [
         'security/global_tag_security.xml',
         'security/ir.model.access.csv',
         'views/global_tag_view.xml',
-        # 'views/global_tag_log_view.xml',
         'views/global_tag_menu_view.xml',
-        # 'data/global_log_client.xml',
     ],
     'demo': [],
     'test': [],

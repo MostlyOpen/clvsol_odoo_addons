@@ -4,7 +4,7 @@
 
 {
     'name': 'Global Tag Log',
-    'summary': 'Add Log to the Global Tag Module, used by CLVsol Solutions.',
+    'summary': 'Global Tag Log Module, used by CLVsol Solutions.',
     'version': '15.0.6.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'CLVsol Solutions',

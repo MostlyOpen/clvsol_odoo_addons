@@ -2,10 +2,10 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==========
-Global Tag
-==========
+==============
+Global Tag Log
+==============
 
-Global Tag Module used by CLVsol Solutions.
+Global Tag Log Module used by CLVsol Solutions.
 
 Developed by `CLVsol <https://github.com/CLVsol>`_.

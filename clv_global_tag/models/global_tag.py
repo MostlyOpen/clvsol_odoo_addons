@@ -8,17 +8,4 @@ from odoo import fields, models
 class GlobalTag(models.Model):
     _description = 'Global Tag'
     _name = 'clv.global_tag'
-    _inherit = 'clv.abstract.h_tag'
-
-    parent_id = fields.Many2one(
-        comodel_name='clv.global_tag',
-        string='Parent Tag',
-        index=True,
-        ondelete='restrict'
-    )
-
-    child_ids = fields.One2many(
-        comodel_name='clv.global_tag',
-        inverse_name='parent_id',
-        string='Child Tags'
-    )
+    _inherit = 'clv.abstract.tag'

@@ -29,10 +29,13 @@ class MediaFileMassEdit(models.TransientModel):
     _description = 'Media File Mass Edit'
     _name = 'clv.mfile.mass_edit'
 
+    def _default_mfile_ids(self):
+        return self._context.get('active_ids')
     mfile_ids = fields.Many2many(
         comodel_name='clv.mfile',
         relation='clv_mfile_mass_edit_rel',
-        string='Media Files'
+        string='Media Files',
+        default=_default_mfile_ids
     )
 
     global_tag_ids = fields.Many2many(
@@ -110,8 +113,6 @@ class MediaFileMassEdit(models.TransientModel):
     def default_get(self, field_names):
 
         defaults = super().default_get(field_names)
-
-        defaults['mfile_ids'] = self.env.context['active_ids']
 
         return defaults
 

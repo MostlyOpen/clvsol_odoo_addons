@@ -47,3 +47,5 @@ class MediaFile(models.Model):
                     record.path = record.alias
                 else:
                     record.path = record.code
+            else:
+                record.path = False

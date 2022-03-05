@@ -6,7 +6,7 @@ from . import global_settings
 from . import referenceable_model
 from . import default_value
 from . import abstract_log
-# from . import abstract_tag
+from . import abstract_tag
 # from . import abstract_h_tag
 # from . import abstract_marker
 # from . import abstract_format

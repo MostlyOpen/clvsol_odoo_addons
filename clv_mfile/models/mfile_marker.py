@@ -37,8 +37,18 @@ class MediaFile(models.Model):
         store=True
     )
 
+    marker_names_suport = fields.Char(
+        string='Marker Names Suport',
+        compute='_compute_marker_names_suport',
+        store=False
+    )
+
     @api.depends('marker_ids')
     def _compute_marker_names(self):
+        for r in self:
+            r.marker_names = r.marker_names_suport
+
+    def _compute_marker_names_suport(self):
         for r in self:
             marker_names = False
             for marker in r.marker_ids:
@@ -46,4 +56,7 @@ class MediaFile(models.Model):
                     marker_names = marker.name
                 else:
                     marker_names = marker_names + ', ' + marker.name
-            r.marker_names = marker_names
+            r.marker_names_suport = marker_names
+            if r.marker_names != marker_names:
+                record = self.env['clv.mfile'].search([('id', '=', r.id)])
+                record.write({'marker_ids': r.marker_ids})

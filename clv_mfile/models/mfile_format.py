@@ -37,8 +37,18 @@ class MediaFile(models.Model):
         store=True
     )
 
+    format_names_suport = fields.Char(
+        string='Format Names Suport',
+        compute='_compute_format_names_suport',
+        store=False
+    )
+
     @api.depends('format_ids')
     def _compute_format_names(self):
+        for r in self:
+            r.format_names = r.format_names_suport
+
+    def _compute_format_names_suport(self):
         for r in self:
             format_names = False
             for format in r.format_ids:
@@ -46,4 +56,7 @@ class MediaFile(models.Model):
                     format_names = format.name
                 else:
                     format_names = format_names + ', ' + format.name
-            r.format_names = format_names
+            r.format_names_suport = format_names
+            if r.format_names != format_names:
+                record = self.env['clv.mfile'].search([('id', '=', r.id)])
+                record.write({'format_ids': r.format_ids})

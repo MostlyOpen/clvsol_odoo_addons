@@ -54,6 +54,13 @@ class ExternalSyncBatchMember(models.Model):
     @api.depends('ref_id')
     def _compute_refenceable_model_schedule(self):
         for record in self:
+            record.ref_method = False
+            record.ref_enable_identification = False
+            record.ref_enable_inclusion = False
+            record.ref_enable_sync = False
+            record.ref_enable_identification_suport = False
+            record.ref_enable_inclusion_suport = False
+            record.ref_enable_sync_suport = False
             try:
                 if record.ref_id:
                     record.ref_method = record.ref_id.method

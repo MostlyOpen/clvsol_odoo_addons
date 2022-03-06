@@ -130,12 +130,6 @@ class ExternalSyncSchedule(models.Model):
         readonly=True
     )
 
-    # _sql_constraints = [
-    #     ('name_uniq',
-    #      'UNIQUE (name)',
-    #      u'Error! The Name must be unique!'),
-    # ]
-
     @api.model
     def create(self, values):
 
@@ -253,7 +247,6 @@ class ExternalSyncTemplate(models.Model):
         store=True
     )
 
-    # @api.multi
     @api.depends('schedule_ids')
     def _compute_count_schedules(self):
         for r in self:

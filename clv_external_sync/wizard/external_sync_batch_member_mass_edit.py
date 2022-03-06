@@ -31,18 +31,6 @@ class ExternalSyncBatchMemberMassEdit(models.TransientModel):
          ], string='Enabled:', default=False, readonly=False, required=False
     )
 
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
     def do_external_sync_batch_member_mass_edit(self):
         self.ensure_one()
 

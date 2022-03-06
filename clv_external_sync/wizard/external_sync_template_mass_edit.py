@@ -86,7 +86,6 @@ class ExternalSypnTemplateMassEdit(models.TransientModel):
          ], string='Last Update (End):', default=False, readonly=False, required=False
     )
 
-    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -99,7 +98,6 @@ class ExternalSypnTemplateMassEdit(models.TransientModel):
         }
         return action
 
-    # @api.multi
     def do_external_sync_template_mass_edit(self):
         self.ensure_one()
 

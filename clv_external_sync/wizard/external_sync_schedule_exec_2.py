@@ -38,18 +38,6 @@ class ExternalSyncScheduleExec(models.TransientModel):
         for r in self:
             r.count_schedules = len(r.external_sync_batch_member_ids)
 
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
     def do_external_sync_schedule_exec_2(self):
         self.ensure_one()
 
@@ -81,4 +69,3 @@ class ExternalSyncScheduleExec(models.TransientModel):
                 exec(method_call)
 
         return True
-        # return self._reopen_form()

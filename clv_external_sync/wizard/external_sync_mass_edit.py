@@ -37,20 +37,6 @@ class ExternalSyncMassEdit(models.TransientModel):
          ], string='External Synchronization State:', default=False, readonly=False, required=False
     )
 
-    # @api.multi
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
-    # @api.multi
     def do_external_sync_mass_edit(self):
         self.ensure_one()
 

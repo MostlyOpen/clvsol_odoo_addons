@@ -31,26 +31,11 @@ class ExternalSyncScheduleExec(models.TransientModel):
         store=False
     )
 
-    # @api.multi
     @api.depends('schedule_ids')
     def _compute_count_schedules(self):
         for r in self:
             r.count_schedules = len(r.schedule_ids)
 
-    # @api.multi
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
-    # @api.multi
     def do_external_sync_schedule_exec(self):
         self.ensure_one()
 
@@ -59,18 +44,6 @@ class ExternalSyncScheduleExec(models.TransientModel):
             model = schedule.model
             external_model = schedule.external_model
             _logger.info(u'%s %s [%s - %s]', '>>>>>', schedule.name, model, external_model)
-
-            # method_call = False
-            # if schedule.method == '_object_external_sync':
-            #     method_call = 'self.env["clv.external_sync"].' + schedule.method + '(schedule)'
-            # elif schedule.method == '_object_external_recognize':
-            #     method_call = 'self.env["clv.external_sync"].' + schedule.method + '(schedule)'
-
-            # if schedule.enable_check_missing:
-            #     method = '_object_external_identify'
-            #     method_call = 'self.env["clv.external_sync"].' + method + '(schedule)'
-            # method = '_object_external_identify'
-            # method_call = 'self.env["clv.external_sync"].' + method + '(schedule)'
 
             method_call = 'self.env["clv.external_sync"].' + schedule.method + '(schedule)'
 
@@ -93,4 +66,3 @@ class ExternalSyncScheduleExec(models.TransientModel):
                 exec(method_call)
 
         return True
-        # return self._reopen_form()

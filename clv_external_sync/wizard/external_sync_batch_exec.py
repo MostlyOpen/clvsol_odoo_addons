@@ -36,18 +36,6 @@ class ExternalSyncBatchExec(models.TransientModel):
         for r in self:
             r.count_batches = len(r.batch_ids)
 
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
     def do_external_sync_batch_exec(self):
         self.ensure_one()
 
@@ -59,4 +47,3 @@ class ExternalSyncBatchExec(models.TransientModel):
             ExternalSyncBatch._external_sync_batch_exec(batch.name)
 
         return True
-        # return self._reopen_form()

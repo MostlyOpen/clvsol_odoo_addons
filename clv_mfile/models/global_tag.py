@@ -48,9 +48,9 @@ class MediaFile(models.Model):
             global_tag_names = False
             for global_tag in r.global_tag_ids:
                 if global_tag_names is False:
-                    global_tag_names = global_tag.complete_name
+                    global_tag_names = global_tag.name
                 else:
-                    global_tag_names = global_tag_names + ', ' + global_tag.complete_name
+                    global_tag_names = global_tag_names + ', ' + global_tag.name
             r.global_tag_names_suport = global_tag_names
             if r.global_tag_names != global_tag_names:
                 record = self.env['clv.mfile'].search([('id', '=', r.id)])

@@ -15,7 +15,6 @@
         'survey',
         'clv_base',
         'clv_phase',
-        # 'clv_set',
     ],
     'data': [
         'security/survey_security.xml',
@@ -23,7 +22,7 @@
         'views/survey_survey_view.xml',
         'views/survey_question_view.xml',
         'views/survey_question_answer_view.xml',
-        # 'views/survey_user_input_view.xml',
+        'views/survey_user_input_view.xml',
         'views/phase_view.xml',
         'views/referenceable_model_view.xml',
         # 'wizard/survey_duplicate_view.xml',

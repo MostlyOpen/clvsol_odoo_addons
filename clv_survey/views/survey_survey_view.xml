@@ -21,8 +21,6 @@
                 <h3><field name="code" placeholder="Survey Code"/></h3>
                 <label for="public_url" class="oe_edit_only"/>
                 <h3><field name="public_url" placeholder="Public link" widget="url"/></h3>
-                <!--label for="ref_model" class="oe_edit_only"/>
-                <h3><field name="ref_model" placeholder="Reference Model..."/></h3-->
             </label>
             <field name="question_type" position="before">
                 <field name="code"/>

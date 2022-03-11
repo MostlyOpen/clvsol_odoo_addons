@@ -52,8 +52,6 @@ class SurveyDuplicate(models.TransientModel):
 
         defaults = super(SurveyDuplicate, self).default_get(field_names)
 
-        # defaults['survey_ids'] = self.env.context['active_ids']
-
         Survey = self.env['survey.survey']
         survey_id = self._context.get('active_id')
         survey = Survey.search([
@@ -69,18 +67,6 @@ class SurveyDuplicate(models.TransientModel):
         defaults['phase_id'] = phase_id
 
         return defaults
-
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
 
     def do_survey_duplicate(self):
         self.ensure_one()

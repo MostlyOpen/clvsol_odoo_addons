@@ -52,8 +52,6 @@ class SurveyUserInput(models.Model):
                    self.env['ir.config_parameter'].sudo().get_param('web.base.url')
 
         for user_input in self:
-            # user_input.survey_url = \
-            #     urls.url_join(base_url, "survey/fill/%s/%s" % (slug(user_input.survey_id), user_input.token))
             user_input.survey_url = \
                 urls.url_join(
                     base_url, "survey/%s/%s" % (user_input.survey_id.access_token, user_input.access_token))
@@ -106,9 +104,6 @@ class SurveyUserInput(models.Model):
                     else:
                         if survey_user_input_line_reg.suggested_answer_id.value is not False:
                             value = value + '; ' + survey_user_input_line_reg.suggested_answer_id.value
-                        # else:
-                        #     value = value + '; False'
-                # value = survey_user_input_line_search.suggested_answer_id.value
 
         if survey_question_search.question_type == 'multiple_choice':
             value = ''
@@ -123,8 +118,6 @@ class SurveyUserInput(models.Model):
                     else:
                         if survey_user_input_line_reg.suggested_answer_id.value is not False:
                             value = value + '; ' + survey_user_input_line_reg.suggested_answer_id.value
-                        # else:
-                        #     value = value + '; False'
 
         if survey_question_search.question_type == 'matrix':
             value = ''
@@ -198,7 +191,6 @@ class SurveyUserInput_4(models.Model):
     _inherit = 'survey.user_input'
 
     def _survey_user_input_refresh(self):
-        # self.ensure_one()
 
         for survey_user_input in self:
 
@@ -318,7 +310,6 @@ class SurveyUserInput_4(models.Model):
         return True
 
     def _survey_user_input_validate(self):
-        # self.ensure_one()
 
         for survey_user_input in self:
 
@@ -353,7 +344,6 @@ class SurveyUserInput_4(models.Model):
 
                         survey_user_input.state_2 = 'validated'
                         survey_user_input.ref_id.reg_state = 'revised'
-                        # survey_user_input.ref_id.state = 'waiting'
                         survey_user_input.ref_id.state = 'available'
                         survey_user_input.ref_id.items_ok = False
 
@@ -362,7 +352,6 @@ class SurveyUserInput_4(models.Model):
                     survey_user_input.ref_id.survey_user_input_id = survey_user_input.id
                     survey_user_input.ref_id.reg_state = 'revised'
                     survey_user_input.state_2 = 'validated'
-                    # survey_user_input.ref_id.state = 'waiting'
                     survey_user_input.ref_id.state = 'available'
                     survey_user_input.ref_id.items_ok = False
 

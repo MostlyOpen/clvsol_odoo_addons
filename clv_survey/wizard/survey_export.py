@@ -103,25 +103,21 @@ class SurveyExport(models.TransientModel):
 
                 xml_file_path = self.dir_path + '/' + \
                     self.file_name.replace('<code>', survey_reg.code)
-                # _logger.info(u'%s %s', '>>>>>', xml_file_path)
 
             if self.export_yaml is True:
 
                 yaml_file_path = self.dir_path + '/' + \
                     self.file_name.replace('<code>', survey_reg.code).replace('.xml', '.yaml')
-                # _logger.info(u'%s %s', '>>>>>', yaml_file_path)
 
             if self.export_txt is True:
 
                 txt_file_path = self.dir_path + '/' + \
                     self.file_name.replace('<code>', survey_reg.code).replace('.xml', '.txt')
-                # _logger.info(u'%s %s', '>>>>>', txt_file_path)
 
             if self.export_xls is True:
 
                 xls_file_path = self.dir_path + '/' + \
                     self.xls_file_name.replace('<code>', survey_reg.code).replace('<file_format>', self.file_format)
-                # _logger.info(u'%s %s', '>>>>>', txt_file_path)
 
             survey_reg.survey_survey_export(
                 yaml_filepath=yaml_file_path,

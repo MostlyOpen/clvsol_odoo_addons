@@ -785,8 +785,6 @@ class SurveySurvey(models.Model):
                     xml_file.write('            <field name="description">&lt;p&gt;%s&lt;/p&gt;</field>\n' %
                                    (_survey_description_))
                 xml_file.write('            <field name="questions_layout">%s</field>\n' % (_survey_questions_layout_))
-                # xml_file.write('            <field name="phase_id" eval="%s"/>\n' % (self.phase_id))
-                # xml_file.write('            <field name="ref_model" eval="%s"/>\n' % (self.ref_model))
                 xml_file.write('            <field name="progression_mode">%s</field>\n' % (_survey_progression_mode_))
                 xml_file.write('            <field name="is_time_limited" eval="%s"/>\n' % (_survey_is_time_limited_))
                 xml_file.write('            <field name="questions_selection">%s</field>\n' % (_survey_questions_selection_))
@@ -822,9 +820,6 @@ class SurveySurvey(models.Model):
             if export_xls:
 
                 nonlocal row_nr
-
-                # _title_ = survey_reg.title
-                # _description_ = survey_reg.description.replace('<p>', '').replace('</p>', '')
 
                 sheet = book.add_sheet(_survey_code_)
                 row = sheet.row(row_nr)

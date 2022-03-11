@@ -129,7 +129,6 @@ class SurveyExportXLS(models.TransientModel):
                 ('is_page', '=', True),
             ])
 
-            # for page in survey_reg.page_ids:
             for page in pages:
 
                 _title_ = page.title

@@ -47,18 +47,6 @@ class SurveyUserInputGetReference(models.TransientModel):
         default=_default_survey_user_input_ids
     )
 
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
     def do_survey_user_input_get_reference(self):
         self.ensure_one()
 
@@ -115,20 +103,5 @@ class SurveyUserInputGetReference(models.TransientModel):
                                 if model.code == survey_user_input.parameter_1:
 
                                     survey_user_input.ref_id = model._name + ',' + str(model.id)
-
-                        # elif len(models) == 0:
-
-                        #     models = Model.search([
-                        #         ('code', '=', survey_user_input.parameter_1),
-                        #     ])
-
-                        #     _logger.info(u'%s %s (%s)', '>>>>>', models, len(models))
-
-                        #     for model in models:
-
-                        #         if model.code == survey_user_input.parameter_1:
-
-                        #             survey_user_input.ref_id = model._name + ',' + str(model.id)
-                        #             model.survey_user_input_id = survey_user_input.id
 
         return True

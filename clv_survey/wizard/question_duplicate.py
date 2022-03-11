@@ -32,8 +32,6 @@ class QuestionDuplicate(models.TransientModel):
 
         defaults = super(QuestionDuplicate, self).default_get(field_names)
 
-        # defaults['question_ids'] = self.env.context['active_ids']
-
         Question = self.env['survey.question']
         question_id = self._context.get('active_id')
         question = Question.search([
@@ -61,7 +59,6 @@ class QuestionDuplicate(models.TransientModel):
             'description': question.description,
             'constr_mandatory': question.constr_mandatory,
             'constr_error_msg': question.constr_error_msg,
-            # 'display_mode': question.display_mode,
             'column_nb': question.column_nb,
             'comments_allowed': question.comments_allowed,
             'comments_message': question.comments_message,
@@ -126,7 +123,6 @@ class QuestionDuplicate(models.TransientModel):
                     'description': ref_question.description,
                     'constr_mandatory': ref_question.constr_mandatory,
                     'constr_error_msg': ref_question.constr_error_msg,
-                    # 'display_mode': ref_question.display_mode,
                     'column_nb': ref_question.column_nb,
                     'comments_allowed': ref_question.comments_allowed,
                     'comments_message': ref_question.comments_message,

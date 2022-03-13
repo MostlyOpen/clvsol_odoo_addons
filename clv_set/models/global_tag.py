@@ -17,7 +17,7 @@ class GlobalTag(models.Model):
     )
 
 
-class Document(models.Model):
+class Set(models.Model):
     _inherit = 'clv.set'
 
     global_tag_ids = fields.Many2many(

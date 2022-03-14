@@ -64,7 +64,6 @@
         <field name="model">hr.employee.history</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <!--tree colors="red:date_sign_out != False;blue:date_sign_out == False"-->
             <tree>
                 <field name="employee_id"/>
                 <field name="department_id"/>
@@ -126,14 +125,6 @@
             <page name="hr_settings" position="after">
                 <page string="Employee History">
                     <field name="employee_history_ids" colspan="4" nolabel="1">
-                        <group>
-                            <!--tree string="Employees" colors="red:date_sign_out != False;blue:date_sign_out == False">
-                                <field name="job_id"/>
-                                <field name="date_sign_in"/>
-                                <field name="date_sign_out"/>
-                                <field name="notes"/>
-                            </tree-->
-                        </group>
                     </field>
                 </page>
             </page>

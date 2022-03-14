@@ -14,7 +14,6 @@
     'depends': [
         'hr',
         'clv_base',
-        # 'clv_global_log',
         'clv_global_tag',
         'clv_phase',
         'clv_set',
@@ -23,7 +22,6 @@
         'security/employee_security.xml',
         'security/ir.model.access.csv',
         'views/hr_employee_view.xml',
-        # 'views/hr_employee_log_view.xml',
         'views/hr_job_view.xml',
         'views/global_tag_view.xml',
         'views/phase_view.xml',
@@ -31,7 +29,6 @@
         'wizard/hr_employee_mass_edit_view.xml',
         'wizard/hr_employee_user_groups_updt_view.xml',
         'wizard/hr_employee_associate_to_set_view.xml',
-        # 'data/global_log_client.xml',
         'data/set_element.xml',
     ],
     'demo': [],

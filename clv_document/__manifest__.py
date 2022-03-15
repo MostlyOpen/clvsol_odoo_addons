@@ -29,7 +29,6 @@
         'views/phase_view.xml',
         'views/document_reg_state_view.xml',
         'views/document_state_view.xml',
-        # # 'data/document_mass_editing.xml',
         'wizard/document_mass_edit_view.xml',
         'wizard/document_items_refresh_view.xml',
         'wizard/document_type_mass_edit_view.xml',

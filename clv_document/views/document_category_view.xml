@@ -57,7 +57,6 @@
         <field name="name">Document Categories</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">clv.document.category</field>
-        <!--*field name="view_type">form</field-->
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="clv_document_category_view_search"/>
         <field name="domain">[]</field>
@@ -78,7 +77,6 @@
         <field name="arch" type="xml">
             <field name="code" position="before">
                 <field name="category_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                <!--field name="category_names_suport" invisible="True"/-->
             </field>
         </field>
     </record>
@@ -119,7 +117,6 @@
         <field name="arch" type="xml">
             <field name="code" position="before">
                 <field name="category_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                <!--field name="category_names_suport" invisible="True"/-->
             </field>
         </field>
     </record>

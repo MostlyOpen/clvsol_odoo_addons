@@ -42,7 +42,6 @@ class Document(models.Model):
         # store=True
     )
 
-    # @api.depends('child_ids')
     def _compute_count_children(self):
         for r in self:
             r.count_children = len(r.child_ids)

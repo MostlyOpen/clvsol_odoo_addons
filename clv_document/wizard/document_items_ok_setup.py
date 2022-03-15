@@ -35,7 +35,6 @@ class DocumentItemsOkSetUp(models.TransientModel):
         }
         return action
 
-    # @api.multi
     def do_document_items_ok_setup(self):
         self.ensure_one()
 

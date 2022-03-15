@@ -30,7 +30,6 @@ class Event(models.Model):
         # return (old_state, new_state) in allowed
         return True
 
-    # @api.multi
     def change_state(self, new_state):
         for event in self:
             if event.is_allowed_transition(event.state, new_state):
@@ -38,22 +37,18 @@ class Event(models.Model):
             else:
                 raise UserError('Status transition (' + event.state + ', ' + new_state + ') is not allowed!')
 
-    # @api.multi
     def action_draft(self):
         for event in self:
             event.change_state('draft')
 
-    # @api.multi
     def action_confirm(self):
         for event in self:
             event.change_state('confirm')
 
-    # @api.multi
     def action_done(self):
         for event in self:
             event.change_state('done')
 
-    # @api.multi
     def action_cancel(self):
         for event in self:
             event.change_state('cancel')

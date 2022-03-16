@@ -51,7 +51,6 @@ class LabTestRequest(models.Model):
         for r in self:
             r.lab_test_type_names = r.lab_test_type_names_suport
 
-    # @api.multi
     def _compute_lab_test_type_names_suport(self):
         for r in self:
             lab_test_type_names = False

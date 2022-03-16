@@ -17,14 +17,10 @@
                                 <field name="code"/>
                                 <field name="name"/>
                                 <field name="result"/>
-                                <!--field name="unit_id" options="{'no_open': False, 'no_create': True}"/-->
                                 <field name="sequence"/>
                                 <newline/>
-                                <!--field name="normal_range"/-->
                             </group>
                             <group>
-                                <!--field name="result_display"/-->
-                                <!--field name="report_display"/-->
                             </group>
                             <group>
                                 <field name="lab_test_type_id" options="{'no_open': False, 'no_create': True}"/>
@@ -75,13 +71,9 @@
                 <field name="code"/>
                 <field name="name"/>
                 <field name="result"/>
-                <!--field name="unit_id"/-->
-                <!--field name="normal_range"/-->
                 <field name="lab_test_type_id"/>
                 <field name="lab_test_result_id"/>
                 <field name="lab_test_report_id"/>
-                <!--field name="result_display"/-->
-                <!--field name="report_display"/-->
             </tree>
         </field>
     </record>
@@ -96,8 +88,6 @@
                 <field name="lab_test_report_id"/>
                 <field name="code"/>
                 <field name="name"/>
-                <!--field name="result_display"/-->
-                <!--field name="report_display"/-->
                 <separator/>
                 <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
                 <group name="group_by" expand="0" string="Group By...">
@@ -113,7 +103,6 @@
         <field name="name">Lab Test Criteria</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">clv.lab_test.criterion</field>
-        <!--*field name="view_type">form</field-->
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="clv_lab_test_criterion_view_search" />
         <field name="domain">[]</field>
@@ -137,10 +126,6 @@
                         <field name="sequence" invisible="0"/>
                         <field name="code"/>
                         <field name="name"/>
-                        <!--field name="unit_id"/-->
-                        <!--field name="normal_range"/-->
-                        <!--field name="result_display"/-->
-                        <!--field name="report_display"/-->
                     </tree>
                 </field>
             </field>
@@ -160,8 +145,6 @@
                         <field name="code" readonly="True"/>
                         <field name="name" readonly="True"/>
                         <field name="result"/>
-                        <!--field name="unit_id" readonly="True"/-->
-                        <!--field name="normal_range" readonly="True"/-->
                     </tree>
                 </field>
             </group>
@@ -181,8 +164,6 @@
                         <field name="code" readonly="True"/>
                         <field name="name" readonly="True"/>
                         <field name="result"/>
-                        <!--field name="unit_id" readonly="True"/-->
-                        <!--field name="normal_range" readonly="True"/-->
                     </tree>
                 </field>
             </group>

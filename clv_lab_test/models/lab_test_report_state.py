@@ -26,7 +26,6 @@ class LabTestResult(models.Model):
         # return (old_state, new_state) in allowed
         return True
 
-    # @api.multi
     def change_state(self, new_state):
         for lab_test_report in self:
             if lab_test_report.is_allowed_transition(lab_test_report.state, new_state):
@@ -34,22 +33,18 @@ class LabTestResult(models.Model):
             else:
                 raise UserError('Status transition (' + lab_test_report.state + ', ' + new_state + ') is not allowed!')
 
-    # @api.multi
     def action_new(self):
         for lab_test_report in self:
             lab_test_report.change_state('new')
 
-    # @api.multi
     def action_available(self):
         for lab_test_report in self:
             lab_test_report.change_state('available')
 
-    # @api.multi
     def action_approve(self):
         for lab_test_report in self:
             lab_test_report.change_state('approved')
 
-    # @api.multi
     def action_discard(self):
         for lab_test_report in self:
             lab_test_report.change_state('discarded')

@@ -25,7 +25,6 @@ class LabTestReport(models.Model):
         # return (old_reg_state, new_reg_state) in allowed
         return True
 
-    # @api.multi
     def change_reg_state(self, new_reg_state):
         for lab_test_report in self:
             if lab_test_report.is_allowed_transition_reg_state(lab_test_report.reg_state, new_reg_state):
@@ -35,17 +34,14 @@ class LabTestReport(models.Model):
                     'Status transition (' + lab_test_report.reg_state + ', ' + new_reg_state + ') is not allowed!'
                 )
 
-    # @api.multi
     def action_draft(self):
         for lab_test_report in self:
             lab_test_report.change_reg_state('draft')
 
-    # @api.multi
     def action_revised(self):
         for lab_test_report in self:
             lab_test_report.change_reg_state('revised')
 
-    # @api.multi
     def action_done(self):
         for lab_test_report in self:
             lab_test_report.change_reg_state('done')

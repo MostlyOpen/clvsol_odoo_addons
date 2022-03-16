@@ -35,22 +35,18 @@ class LabTestResult(models.Model):
                     'Status transition (' + lab_test_result.reg_state + ', ' + new_reg_state + ') is not allowed!'
                 )
 
-    # @api.multi
     def action_draft(self):
         for lab_test_result in self:
             lab_test_result.change_reg_state('draft')
 
-    # @api.multi
     def action_revised(self):
         for lab_test_result in self:
             lab_test_result.change_reg_state('revised')
 
-    # @api.multi
     def action_done(self):
         for lab_test_result in self:
             lab_test_result.change_reg_state('done')
 
-    # @api.multi
     def action_cancel(self):
         for lab_test_result in self:
             lab_test_result.change_reg_state('cancelled')

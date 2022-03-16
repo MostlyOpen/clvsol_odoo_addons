@@ -7,7 +7,6 @@ from . import lab_test_type_parameter
 from . import lab_test_request
 from . import lab_test_result
 from . import lab_test_report
-# from . import lab_test_unit
 from . import lab_test_criterion
 from . import referenceable_model
 from . import phase

@@ -14,8 +14,6 @@ class LabTestTypeCriterion(models.Model):
     name = fields.Char(string='Test')
 
     result = fields.Char(string='Results')
-    # unit_id = fields.Many2one(comodel_name='clv.lab_test.unit', string='Unit')
-    # normal_range = fields.Text(string='Normal Range')
 
     lab_test_type_id = fields.Many2one(comodel_name='clv.lab_test.type', string='Test Type')
 
@@ -27,9 +25,6 @@ class LabTestTypeCriterion(models.Model):
         string='Sequence',
         default=10
     )
-
-    # result_display = fields.Boolean(string='Display in Result', default=True)
-    # report_display = fields.Boolean(string='Display in Report', default=True)
 
     active = fields.Boolean(string='Active', default=1)
 

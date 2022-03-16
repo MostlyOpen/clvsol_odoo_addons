@@ -32,12 +32,6 @@
         groups="clv_lab_test.group_user"
         sequence="20"/>
 
-    <!--menuitem name="Units" id="menu_community_config_config_lab_test_units"
-        parent="clv_lab_test.menu_health_config_lab_test"
-        groups="clv_lab_test.group_user"
-        sequence="10"
-        action="clv_lab_test.clv_lab_test_unit_action"/-->
-
     <menuitem name="Criteria" id="menu_community_config_config_lab_test_criterias"
         parent="clv_lab_test.menu_health_config_lab_test"
         groups="clv_lab_test.group_user"

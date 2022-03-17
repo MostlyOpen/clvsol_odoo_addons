@@ -31,18 +31,6 @@ class ResidenceHistoryUpdate(models.TransientModel):
         required=False
     )
 
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
     def do_residence_history_updt(self):
         self.ensure_one()
 
@@ -164,4 +152,3 @@ class ResidenceHistoryUpdate(models.TransientModel):
                                                  residence_history.date_sign_out)
 
         return True
-        # return self._reopen_form()

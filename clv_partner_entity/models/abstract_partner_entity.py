@@ -5,10 +5,8 @@
 import threading
 import base64
 from datetime import datetime
-import re
 
-from odoo import _, api, fields, models, tools
-from odoo.exceptions import UserError
+from odoo import api, fields, models, tools
 
 
 class AbstractPartnerEntity(models.AbstractModel):
@@ -196,3 +194,89 @@ class AbstractPartnerEntity(models.AbstractModel):
     #         record.write(data_values)
 
     #     return True
+
+    # def _create_default_image(self, vals):
+    #     base64_image = self._get_default_image_encoded(vals)
+    #     if not base64_image:
+    #         return
+    #     return tools.image_resize_image_big(base64_image)
+
+    # def _get_default_image_encoded(self, vals):
+    #     """ It returns the base64 encoded image string for the default avatar.
+
+    #     Args:
+    #         vals (dict): Values dict as passed to create.
+
+    #     Returns:
+    #         str: A base64 encoded image.
+    #         NoneType: None if no result.
+    #     """
+    #     colorize, image_path, image = False, False, False
+
+    #     image_path = self._get_default_image_path(vals)
+    #     if not image_path:
+    #         return
+
+    #     if image_path:
+    #         with open(image_path, 'rb') as f:
+    #             image = f.read()
+
+    #     if image and colorize:
+    #         image = tools.image_colorize(image)
+
+    #     return base64.b64encode(image)
+
+    # def _get_default_image_path(self, vals):
+    #     """ Overload this in child classes in order to add a default image.
+
+    #     Example:
+
+    #         .. code-block:: python
+
+    #         @api.model
+    #         def _get_default_image_path(self, vals):
+    #             res = super()._get_default_image_path(vals)
+    #             if res:
+    #                 return res
+    #             image_path = odoo.modules.get_module_resource(
+    #                 'base', 'static/src/img', 'patient-avatar.png',
+    #             )
+    #             return image_path
+
+    #     Args:
+    #         vals (dict): Values dict as passed to create.
+
+    #     Returns:
+    #         str: A file path to the image on disk.
+    #         bool: False if error.
+    #         NoneType: None if no result.
+    #     """
+    #     return  # pragma: no cover
+
+    # def toggle(self, attr):
+    #     if getattr(self, attr) is True:
+    #         self.write({attr: False})
+    #     elif getattr(self, attr) is False:
+    #         self.write({attr: True})
+
+    # # @api.multi
+    # # def do_set_contact_info_as_unavailable(self):
+
+    # #     for record in self:
+
+    # #         data_values = {}
+
+    # #         data_values['contact_info_is_unavailable'] = True
+
+    # #         data_values['street_name'] = False
+    # #         data_values['street2'] = False
+    # #         data_values['zip'] = False
+    # #         data_values['city'] = False
+    # #         data_values['state_id'] = False
+    # #         data_values['country_id'] = False
+    # #         # data_values['phone'] = False
+    # #         # data_values['mobile'] = False
+
+    # #         record.write(data_values)
+
+    # #     return True

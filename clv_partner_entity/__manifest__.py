@@ -18,7 +18,6 @@
     ],
     'data': [
         'views/res_partner_view.xml',
-        # 'views/abstract_partner_entity_view.xml',
         'views/base_address_city_menu_view.xml',
     ],
     'demo': [],

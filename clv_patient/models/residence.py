@@ -20,10 +20,8 @@ class Residence(models.Model):
     count_patients = fields.Integer(
         string='Patients (count)',
         compute='_compute_count_patients',
-        # store=True
     )
 
-    # @api.depends('patient_ids')
     def _compute_count_patients(self):
         for r in self:
             r.count_patients = len(r.patient_ids)

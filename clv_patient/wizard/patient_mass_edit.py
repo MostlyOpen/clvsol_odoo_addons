@@ -29,11 +29,6 @@ class PatientMassEdit(models.TransientModel):
     _description = 'Patient Mass Edit'
     _name = 'clv.patient.mass_edit'
 
-    # patient_ids = fields.Many2many(
-    #     comodel_name='clv.patient',
-    #     relation='clv_patient_mass_edit_rel',
-    #     string='Patients'
-    # )
     def _default_patient_ids(self):
         return self._context.get('active_ids')
     patient_ids = fields.Many2many(
@@ -175,24 +170,10 @@ class PatientMassEdit(models.TransientModel):
          ], string='Active Log:', default=False, readonly=False, required=False
     )
 
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
     @api.model
     def default_get(self, field_names):
 
         defaults = super().default_get(field_names)
-
-        # defaults['patient_ids'] = self.env.context['active_ids']
 
         return defaults
 

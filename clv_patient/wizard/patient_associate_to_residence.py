@@ -37,18 +37,6 @@ class PatientAssociateToResidence(models.TransientModel):
         default=True,
     )
 
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
     def do_patient_associate_to_residence(self):
         self.ensure_one()
 
@@ -96,7 +84,6 @@ class PatientAssociateToResidence(models.TransientModel):
                         values = {}
                         if new_residence.code is False:
                             values['code'] = '/'
-                        # values['phase_id'] = patient.phase_id.id
                         values['street_name'] = patient.street_name
                         values['street'] = patient.street
                         values['street2'] = patient.street2

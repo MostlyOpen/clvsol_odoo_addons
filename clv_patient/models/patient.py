@@ -9,6 +9,7 @@ from odoo import _, api, fields, models
 from odoo.modules import get_module_resource
 from odoo.exceptions import UserError
 
+
 class Patient(models.Model):
 
     _name = 'clv.patient'
@@ -241,7 +242,5 @@ class Patient(models.Model):
             data_values['country_id'] = False
             # data_values['phone'] = False
             # data_values['mobile'] = False
-
-            _logger.info(u'>>>>>>>>>> %s', data_values)
 
             address.write(data_values)

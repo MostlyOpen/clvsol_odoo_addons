@@ -168,18 +168,6 @@ class ResidenceMassEdit(models.TransientModel):
          ], string='Active Log:', default=False, readonly=False, required=False
     )
 
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
     @api.model
     def default_get(self, field_names):
 

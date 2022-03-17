@@ -53,7 +53,7 @@
             <field name="code" position="after">
                 <field name="reg_state" string="Reg State"/>
             </field>
-            <tree name="partner_entities" position="attributes">
+            <tree name="residences" position="attributes">
                 <attribute name="decoration-muted">reg_state=='draft'</attribute>
                 <attribute name="decoration-primary">reg_state in('done')</attribute>
                 <attribute name="decoration-danger">reg_state=='canceled'</attribute>

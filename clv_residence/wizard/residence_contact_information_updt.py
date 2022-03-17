@@ -26,18 +26,6 @@ class ResidenceContactInformationUpdate(models.TransientModel):
     updt_mobile = fields.Boolean(string='Update Mobile', default=False)
     updt_email = fields.Boolean(string='Update Email', default=False)
 
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
     def do_residence_contact_information_updt(self):
         self.ensure_one()
 

@@ -33,17 +33,17 @@ class PatientHistoryPatientAssociateToSet(models.TransientModel):
 
     set_name = fields.Char(string='Set Name', required=False, help="Set Name")
 
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
+    # def _reopen_form(self):
+    #     self.ensure_one()
+    #     action = {
+    #         'type': 'ir.actions.act_window',
+    #         'res_model': self._name,
+    #         'res_id': self.id,
+    #         'view_type': 'form',
+    #         'view_mode': 'form',
+    #         'target': 'new',
+    #     }
+    #     return action
 
     def do_patient_history_patient_associate_to_set(self):
         self.ensure_one()

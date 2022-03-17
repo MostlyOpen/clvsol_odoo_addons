@@ -31,7 +31,6 @@ class PatientHistoryUpdate(models.TransientModel):
         required=False
     )
 
-    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -44,7 +43,6 @@ class PatientHistoryUpdate(models.TransientModel):
         }
         return action
 
-    # @api.multi
     def do_patient_history_updt(self):
         self.ensure_one()
 
@@ -182,4 +180,3 @@ class PatientHistoryUpdate(models.TransientModel):
                                                  patient_history.date_sign_out)
 
         return True
-        # return self._reopen_form()

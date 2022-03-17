@@ -27,11 +27,6 @@ class Residence(models.Model):
 class PatientHistory(models.Model):
     _inherit = 'clv.patient.history'
 
-    # ref_residence_id = fields.Many2one(
-    #     comodel_name='clv.residence',
-    #     string='Residence',
-    #     ondelete='restrict'
-    # )
     residence_id = fields.Many2one(
         comodel_name='clv.residence',
         string='Residence',

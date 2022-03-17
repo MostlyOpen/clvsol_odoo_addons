@@ -78,18 +78,6 @@ class PatientHistoryPatientMassEdit(models.TransientModel):
          ], string='Patient Tags:', default=False, readonly=False, required=False
     )
 
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
     def do_patient_history_patient_mass_edit(self):
         self.ensure_one()
 

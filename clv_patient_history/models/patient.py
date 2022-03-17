@@ -19,17 +19,6 @@ class PatientHistory(models.Model):
         help='Address Name for the Patient.'
     )
 
-    # responsible_id = fields.Many2one(
-    #     comodel_name='clv.patient',
-    #     string='Responsible',
-    #     ondelete='restrict'
-    # )
-    # caregiver_id = fields.Many2one(
-    #     comodel_name='clv.patient',
-    #     string='Caregiver',
-    #     ondelete='restrict'
-    # )
-
 
 class Patient(models.Model):
     _inherit = 'clv.patient'

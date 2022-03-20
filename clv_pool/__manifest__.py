@@ -17,8 +17,7 @@
     'data': [
         'security/pool_security.xml',
         'security/ir.model.access.csv',
-        'views/pool_instance_view.xml',
-        'views/abstract_code_pool_view.xml',
+        'views/abstract_pool_view.xml',
         'views/pool_menu_view.xml',
     ],
     'demo': [],

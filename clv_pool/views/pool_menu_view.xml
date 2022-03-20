@@ -14,10 +14,4 @@
         groups="clv_pool.group_user"
         sequence="45"/>
 
-    <menuitem name="Instances" id="clv_pool.menu_base_config_pool_instances" 
-        parent="clv_pool.menu_base_config_pool"
-        groups="clv_pool.group_user"
-        sequence="10"
-        action="clv_pool.clv_pool_instance_action"/>
-
 </odoo>

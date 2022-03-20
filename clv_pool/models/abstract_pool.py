@@ -5,16 +5,14 @@
 from odoo import fields, models
 
 
-class PoolInstance(models.Model):
-    _description = 'Pool Instance'
-    _name = 'clv.pool.instance'
+class AbstractPool(models.AbstractModel):
+    _description = 'Abstract Pool'
+    _name = 'clv.abstract.pool'
     _order = 'name'
 
     name = fields.Char(string='Name', required=True)
 
-    code = fields.Char(string='Pool Instance Code', required=False)
-
-    instance_default = fields.Boolean(string='Instance Default', default=False)
+    code = fields.Char(string='Code', required=False)
 
     notes = fields.Text(string='Notes')
 
@@ -23,8 +21,8 @@ class PoolInstance(models.Model):
     _sql_constraints = [
         ('name_uniq',
          'UNIQUE (name)',
-         u'Error! The Name must be unique!'),
+         'Error! The Name must be unique!'),
         ('code_uniq',
          'UNIQUE (code)',
-         u'Error! The Code must be unique!'),
+         'Error! The Code must be unique!'),
     ]

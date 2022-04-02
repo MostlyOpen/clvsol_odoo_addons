@@ -90,7 +90,6 @@ class SurveySurvey(models.Model):
 
             _survey_title_ = self.title
             _survey_model_ = 'survey.survey'
-            _survey_state_ = self.state
             _survey_code_ = self.code
             _survey_users_login_required_ = self.users_login_required
             _survey_attempts_limit_ = self.attempts_limit
@@ -777,7 +776,6 @@ class SurveySurvey(models.Model):
                 xml_file.write('        <record model="%s" id="%s">\n' % (_survey_model_, _survey_code_))
                 xml_file.write('            <field name="title">%s</field>\n' % (_survey_title_))
                 xml_file.write('            <field name="code">%s</field>\n' % (_survey_code_))
-                xml_file.write('            <field name="state">%s</field>\n' % (_survey_state_))
                 xml_file.write('            <field name="users_login_required" eval="%s"/>\n' % (_survey_users_login_required_))
                 xml_file.write('            <field name="attempts_limit" eval="%s"/>\n' % (_survey_attempts_limit_))
                 xml_file.write('            <field name="users_can_go_back" eval="%s"/>\n' % (_survey_users_can_go_back_))
@@ -797,7 +795,6 @@ class SurveySurvey(models.Model):
                 yaml_file.write('    model: %s\n' % (_survey_model_))
                 yaml_file.write('    title: \'%s\'\n' % (_survey_title_))
                 yaml_file.write('    code: \'%s\'\n' % (_survey_code_))
-                yaml_file.write('    state: \'%s\'\n' % (_survey_state_))
                 yaml_file.write('    users_login_required: %s\n' % (_survey_users_login_required_))
                 yaml_file.write('    attempts_limit: %s\n' % (_survey_attempts_limit_))
                 yaml_file.write('    users_can_go_back: %s\n' % (_survey_users_can_go_back_))

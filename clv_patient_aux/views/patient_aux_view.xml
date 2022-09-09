@@ -69,7 +69,7 @@
                 </group>
             </group>
             <page name="page_general_info" position="after">
-                <page name="patient_auxal_information" string="Personal Information" groups="clv_base.group_supuser">
+                <page name="patient_aux_information" string="Personal Information" groups="clv_base.group_supuser">
                     <group>
                         <group name="patient_aux_status">
                             <field name="is_absent"/>
@@ -209,7 +209,7 @@
                                 <group name="right"/>
                             </group>
                         </page>
-                        <page name="patient_auxal_information" string="Personal Information" groups="clv_base.group_supuser">
+                        <page name="patient_aux_information" string="Personal Information" groups="clv_base.group_supuser">
                             <group>
                                 <group name="patient_aux_status">
                                     <field name="is_absent"/>
@@ -232,7 +232,8 @@
                                 </group>
                             </group>
                         </page>
-                        <page name="settings" string="Settings" groups="clv_base.group_reguser" invisible="True">
+                        <!--page name="settings" string="Settings" groups="clv_base.group_reguser" invisible="True"-->
+                        <page name="settings" string="Settings" groups="clv_base.group_reguser" invisible="False">
                             <group name="settings_top">
                                 <group name="settings_left">
                                     <field name="id"/>

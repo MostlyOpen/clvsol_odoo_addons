@@ -92,8 +92,18 @@ class Patient(models.Model):
                 r.age = years_months_days
                 r.age_years = years
             else:
-                r.age = "No Date of Birth!"
-                r.age_years = False
+                if r.estimated_age:
+                    years_months_days = '%s%s' % (
+                        r.estimated_age, _('y')
+                    )
+                    years = '%s%s' % (
+                        r.estimated_age, _('y')
+                    )
+                    r.age = years_months_days
+                    r.age_years = years
+                else:
+                    r.age = "No Date of Birth!"
+                    r.age_years = False
 
     date_reference = fields.Date(
         string="Reference Date",
@@ -116,7 +126,7 @@ class Patient(models.Model):
                 'clv.global_settings.current_date_reference', '').strip()
             r.date_reference = date_reference
 
-    @api.depends('date_reference', 'birthday', 'force_is_deceased', 'date_death')
+    @api.depends('date_reference', 'birthday', 'force_is_deceased', 'date_death', 'estimated_age')
     def _compute_age_reference(self):
         for r in self:
             if r.date_reference:
@@ -144,8 +154,18 @@ class Patient(models.Model):
                     r.age_reference = years_months_days
                     r.age_reference_years = years
                 else:
-                    r.age_reference = "No Date of Birth!"
-                    r.age_reference_years = False
+                    if r.estimated_age:
+                        years_months_days = '%s%s' % (
+                            r.estimated_age, _('y')
+                        )
+                        years = '%s%s' % (
+                            r.estimated_age, _('y')
+                        )
+                        r.age_reference = years_months_days
+                        r.age_reference_years = years
+                    else:
+                        r.age_reference = "No Date of Birth!"
+                        r.age_reference_years = False
             else:
                 r.age_reference = "No Date of Reference!"
                 r.age_reference_years = False

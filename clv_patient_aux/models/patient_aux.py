@@ -285,3 +285,7 @@ class PatientAux(models.Model):
         patients_aux = self.search([("birthday", "!=", False)])
         patients_aux._compute_age_reference()
         patients_aux._compute_age_range_id()
+
+        patients_aux = self.search([("estimated_age", "!=", False)])
+        patients_aux._compute_age_reference()
+        patients_aux._compute_age_range_id()

@@ -259,6 +259,10 @@ class Person(models.Model):
         persons._compute_age_reference()
         persons._compute_age_range_id()
 
+        persons = self.search([("estimated_age", "!=", False)])
+        persons._compute_age_reference()
+        persons._compute_age_range_id()
+
     def do_person_clear_address_data(self):
 
         for address in self:

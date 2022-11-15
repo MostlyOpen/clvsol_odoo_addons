@@ -88,3 +88,6 @@ class Person(models.Model):
         """
         persons = self.search([("birthday", "!=", False)])
         persons._compute_age_range_id()
+
+        persons = self.search([("estimated_age", "!=", False)])
+        persons._compute_age_range_id()

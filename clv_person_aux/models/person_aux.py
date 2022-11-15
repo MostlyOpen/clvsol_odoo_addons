@@ -107,8 +107,18 @@ class PersonAux(models.Model):
                 r.age = years_months_days
                 r.age_years = years
             else:
-                r.age = "No Date of Birth!"
-                r.age_years = False
+                if r.estimated_age:
+                    years_months_days = '%s%s' % (
+                        r.estimated_age, _('y')
+                    )
+                    years = '%s%s' % (
+                        r.estimated_age, _('y')
+                    )
+                    r.age = years_months_days
+                    r.age_years = years
+                else:
+                    r.age = "No Date of Birth!"
+                    r.age_years = False
 
     # date_reference = fields.Date(string="Reference Date")
     date_reference = fields.Date(
@@ -161,8 +171,18 @@ class PersonAux(models.Model):
                     r.age_reference = years_months_days
                     r.age_reference_years = years
                 else:
-                    r.age_reference = "No Date of Birth!"
-                    r.age_reference_years = False
+                    if r.estimated_age:
+                        years_months_days = '%s%s' % (
+                            r.estimated_age, _('y')
+                        )
+                        years = '%s%s' % (
+                            r.estimated_age, _('y')
+                        )
+                        r.age_reference = years_months_days
+                        r.age_reference_years = years
+                    else:
+                        r.age_reference = "No Date of Birth!"
+                        r.age_reference_years = False
             else:
                 r.age_reference = "No Date of Reference!"
                 r.age_reference_years = False

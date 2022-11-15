@@ -248,6 +248,10 @@ class Patient(models.Model):
         patients._compute_age_reference()
         patients._compute_age_range_id()
 
+        patients = self.search([("estimated_age", "!=", False)])
+        patients._compute_age_reference()
+        patients._compute_age_range_id()
+
     def do_patient_clear_address_data(self):
 
         for address in self:

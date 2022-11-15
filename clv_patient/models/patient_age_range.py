@@ -88,3 +88,6 @@ class Patient(models.Model):
         """
         patients = self.search([("birthday", "!=", False)])
         patients._compute_age_range_id()
+
+        patients = self.search([("estimated_age", "!=", False)])
+        patients._compute_age_range_id()

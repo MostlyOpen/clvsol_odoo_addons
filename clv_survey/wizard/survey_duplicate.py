@@ -90,7 +90,7 @@ class SurveyDuplicate(models.TransientModel):
                 'description': self.new_description,
                 'questions_layout': survey.questions_layout,
                 'phase_id': self.phase_id.id,
-                'ref_model': survey.ref_model,
+                # 'ref_model': survey.ref_model,
                 'progression_mode': survey.progression_mode,
                 'is_time_limited': survey.is_time_limited,
                 'questions_selection': survey.questions_selection,

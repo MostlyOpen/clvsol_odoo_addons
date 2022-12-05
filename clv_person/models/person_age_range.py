@@ -9,6 +9,7 @@ from odoo.exceptions import ValidationError
 class PersonAgeRange(models.Model):
     _name = "clv.person.age_range"
     _description = "Person Age Range"
+    _order = 'age_from'
 
     def _default_age_from(self):
         age_from = 0
@@ -30,9 +31,9 @@ class PersonAgeRange(models.Model):
     @api.constrains("age_from", "age_to")
     def _validate_range(self):
         for rec in self:
-            if rec.age_from >= rec.age_to:
+            if rec.age_from > rec.age_to:
                 raise ValidationError(
-                    _("%s is not a valid range (%s >= %s)")
+                    _("%s is not a valid range (%s > %s)")
                     % (rec.name, rec.age_from, rec.age_to)
                 )
             range_id = rec.search(

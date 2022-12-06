@@ -15,6 +15,8 @@ class LabTestType (models.Model):
     name = fields.Char(string='Lab Test Type', required=True)
     code = fields.Char(string='Lab Test Type Code')
 
+    description = fields.Char(string='Lab Test Type Description')
+
     notes = fields.Text(string='Notes')
 
     date_inclusion = fields.Date(

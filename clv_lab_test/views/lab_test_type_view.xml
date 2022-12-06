@@ -19,6 +19,8 @@
                     <div name="title" class="oe_title">
                         <label for="code" class="oe_edit_only"/>
                         <h3><field name="code" placeholder="Lab Test Type Code..."/></h3>
+                        <label for="description" class="oe_edit_only"/>
+                        <h3><field name="description" placeholder="Lab Test Type Description..."/></h3>
                     </div>
                     <group name="group_top">
                         <group name="group_left">
@@ -71,6 +73,7 @@
             <tree name='lab-test_type' string='Lab Test Type'>
                 <field name="name"></field>
                 <field name="code"></field>
+                <field name="description"></field>
             </tree>
         </field>
     </record>

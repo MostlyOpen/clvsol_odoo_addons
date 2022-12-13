@@ -15,6 +15,11 @@ class LabTestResult(models.Model):
 
     lab_test_type_id = fields.Many2one(comodel_name='clv.lab_test.type', string='Lab Test Type')
     lab_test_type_code = fields.Char(string='Lab Test Type Code', related='lab_test_type_id.code', store=False)
+    lab_test_type_description = fields.Char(
+        string='Lab Test Type Description',
+        related='lab_test_type_id.description',
+        store=False
+    )
     lab_test_request_id = fields.Many2one(comodel_name='clv.lab_test.request', string='Lab Test Request')
 
     active = fields.Boolean(string='Active', default=1)

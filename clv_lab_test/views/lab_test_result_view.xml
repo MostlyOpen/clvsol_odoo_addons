@@ -21,8 +21,15 @@
                     </div>
                     <div name="title" class="oe_title">
                         <label for="lab_test_type_id" class="oe_edit_only"/>
-                        <h3>
+                        <!--h3>
                             <field name="lab_test_type_id" default_focus="1" placeholder="Lab Test Type..." options="{'no_open': False, 'no_create': True}"/> (<field name="lab_test_type_code"/>)
+                        </h3-->
+                        <h3>
+                            <field name="lab_test_type_id" default_focus="1" placeholder="Lab Test Type..." options="{'no_open': False, 'no_create': True}"/>
+                        </h3>
+                        <label for="lab_test_type_description" class="oe_edit_only"/>
+                        <h3>
+                            <field name="lab_test_type_description"/>
                         </h3>
                     </div>
                     <group name="group_top">

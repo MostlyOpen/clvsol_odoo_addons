@@ -203,7 +203,10 @@ class SurveySurvey(models.Model):
 
                     nonlocal row_nr
 
-                    if _question_type_ == 'char_box' or _question_type_ == 'text_box' or _question_type_ == 'datetime':
+                    if _question_type_ == 'char_box' or \
+                       _question_type_ == 'text_box' or \
+                       _question_type_ == 'date' or \
+                       _question_type_ == 'datetime':
 
                         if export_xml:
 
@@ -752,12 +755,14 @@ class SurveySurvey(models.Model):
                     nonlocal row_nr
 
                     row = sheet.row(row_nr)
-                    row.write(0, '[' + page.code + ']')
+                    # row.write(0, '[' + page.code + ']')
+                    row.write(0, '[' + _page_code_ + ']')
                     row.write(3, _page_title_)
                     # row_nr += 1
                     row_nr = row_nr + 1
                     row = sheet.row(row_nr)
-                    row.write(0, '[' + page.code + ']')
+                    # row.write(0, '[' + page.code + ']')
+                    row.write(0, '[' + _page_code_ + ']')
                     row.write(3, _page_description_)
                     row_nr += 2
 

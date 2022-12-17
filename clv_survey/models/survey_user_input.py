@@ -65,6 +65,9 @@ class SurveyUserInput(models.Model):
         survey_question_search = SurveyQuestion.search([
             ('code', '=', question_code[:11]),
         ])
+        survey_question_answer_search = False
+        survey_user_input_line_search = False
+
         if question_code[:11] == question_code:
             survey_user_input_line_search = SurveyUserInput.search([
                 ('user_input_id', '=', self.id),
@@ -121,12 +124,17 @@ class SurveyUserInput(models.Model):
 
         if survey_question_search.question_type == 'matrix':
             value = ''
-            for survey_user_input_line_reg in survey_user_input_line_search:
+            if survey_question_answer_search is not False:
+                survey_user_input_line_search = SurveyUserInput.search([
+                    ('user_input_id', '=', self.id),
+                    ('question_id', '=', survey_question_search.id),
+                    ('matrix_row_id', '=', survey_question_answer_search.id),
+                ])
                 if value == '':
-                    value = survey_user_input_line_reg.suggested_answer_id.value
+                    value = survey_user_input_line_search.suggested_answer_id.value
                 else:
-                    if survey_user_input_line_reg.suggested_answer_id.value is not False:
-                        value = value + '; ' + survey_user_input_line_reg.suggested_answer_id.value
+                    if survey_user_input_line_search.suggested_answer_id.value is not False:
+                        value = value + '; ' + survey_user_input_line_search.suggested_answer_id.value
 
         return value
 
@@ -280,9 +288,11 @@ class SurveyUserInput_4(models.Model):
 
                                         survey_user_input.state_2 = 'returned'
                                         if survey_user_input.notes is False:
-                                            survey_user_input.notes = u'Erro: Código "Refers to (Code)" inválido!'
+                                            survey_user_input.notes = \
+                                                u'Erro: Código (Parameter 2) "Refers to (Code)" inválido!'
                                         else:
-                                            survey_user_input.notes += u'\nErro: Código "Refers to (Code)" inválido!'
+                                            survey_user_input.notes += \
+                                                u'\nErro: Código (Parameter 2) "Refers to (Code)" inválido!'
 
                             found_referenceable_model = True
 
@@ -290,9 +300,9 @@ class SurveyUserInput_4(models.Model):
 
                         survey_user_input.state_2 = 'returned'
                         if survey_user_input.notes is False:
-                            survey_user_input.notes = u'Erro: Código "Refers to (Code)" inválido!'
+                            survey_user_input.notes = u'Erro: Código (Parameter 1) "Refers to (Code)" inválido!'
                         else:
-                            survey_user_input.notes += u'\nErro: Código "Refers to (Code)" inválido!'
+                            survey_user_input.notes += u'\nErro: Código (Parameter 1) "Refers to (Code)" inválido!'
 
                 else:
 

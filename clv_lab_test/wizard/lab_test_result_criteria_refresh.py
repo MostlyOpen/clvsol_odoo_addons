@@ -42,13 +42,19 @@ class LabTestResultCriteriaRefresh(models.TransientModel):
                 if lab_test_result_criterion.id is not False:
                     lab_test_result_criterion.sequence = criterion.sequence
                 else:
-                    if criterion.result_display:
-                        criteria.append((0, 0, {'code': criterion.code,
-                                                'name': criterion.name,
-                                                'sequence': criterion.sequence,
-                                                'result': criterion.result,
-                                                'sequence': criterion.sequence,
-                                                }))
+                    # if criterion.result_display:
+                    #     criteria.append((0, 0, {'code': criterion.code,
+                    #                             'name': criterion.name,
+                    #                             'sequence': criterion.sequence,
+                    #                             'result': criterion.result,
+                    #                             'sequence': criterion.sequence,
+                    #                             }))
+                    criteria.append((0, 0, {'code': criterion.code,
+                                            'name': criterion.name,
+                                            'sequence': criterion.sequence,
+                                            'result': criterion.result,
+                                            'sequence': criterion.sequence,
+                                            }))
 
             lab_test_result.criterion_ids = criteria
 

@@ -35,6 +35,7 @@
                     <group name="group_top">
                         <group name="group_left">
                             <field name="lab_test_request_id" default_focus="1" placeholder="Lab Test Request..." options="{'no_open': False, 'no_create': True}"/>
+                            <field name="date_inclusion"/>
                         </group>
                         <group name="group_right">
                         </group>

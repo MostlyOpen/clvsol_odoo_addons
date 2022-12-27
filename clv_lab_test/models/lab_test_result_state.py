@@ -11,6 +11,7 @@ class LabTestResult(models.Model):
 
     state = fields.Selection(
         [('new', 'New'),
+         ('received', 'Received'),
          ('available', 'Available'),
          ('approved', 'Approved'),
          ('discarded', 'Discarded')

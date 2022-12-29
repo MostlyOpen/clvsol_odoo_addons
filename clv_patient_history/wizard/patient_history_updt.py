@@ -102,10 +102,10 @@ class PatientHistoryUpdate(models.TransientModel):
                         'category_ids': category_ids,
                         'marker_ids': marker_ids,
                         'tag_ids': tag_ids,
-                        'responsible_id': patient.responsible_id.id,
-                        'caregiver_id': patient.caregiver_id.id,
-                        'family_id': patient.family_id.id,
-                        'ref_address_id': patient.ref_address_id.id,
+                        # 'responsible_id': patient.responsible_id.id,
+                        # 'caregiver_id': patient.caregiver_id.id,
+                        # 'family_id': patient.family_id.id,
+                        # 'ref_address_id': patient.ref_address_id.id,
                     }
                     patient_history = PatientHistory.create(values)
                     _logger.info(u'%s %s %s %s', '>>>>>>>>>>', patient_history.phase_id.name,
@@ -150,17 +150,17 @@ class PatientHistoryUpdate(models.TransientModel):
                     if m2m_list != m2m_list_2:
                         patient_history.tag_ids = m2m_list
 
-                    if patient_history.responsible_id.id != patient.responsible_id.id:
-                        patient_history.responsible_id = patient.responsible_id.id
+                    # if patient_history.responsible_id.id != patient.responsible_id.id:
+                    #     patient_history.responsible_id = patient.responsible_id.id
 
-                    if patient_history.caregiver_id.id != patient.caregiver_id.id:
-                        patient_history.caregiver_id = patient.caregiver_id.id
+                    # if patient_history.caregiver_id.id != patient.caregiver_id.id:
+                    #     patient_history.caregiver_id = patient.caregiver_id.id
 
-                    if patient_history.family_id.id != patient.family_id.id:
-                        patient_history.family_id = patient.family_id.id
+                    # if patient_history.family_id.id != patient.family_id.id:
+                    #     patient_history.family_id = patient.family_id.id
 
-                    if patient_history.ref_address_id.id != patient.ref_address_id.id:
-                        patient_history.ref_address_id = patient.ref_address_id.id
+                    # if patient_history.ref_address_id.id != patient.ref_address_id.id:
+                    #     patient_history.ref_address_id = patient.ref_address_id.id
 
                     _logger.info(u'%s %s %s %s', '>>>>>>>>>>', patient_history.phase_id.name,
                                                  patient_history.date_sign_in,

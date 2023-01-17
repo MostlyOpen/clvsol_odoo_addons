@@ -13,33 +13,37 @@ class LabTestRequest(models.Model):
         [('draft', 'Draft'),
          ('received', 'Received'),
          ('cancelled', 'Cancelled'),
-         ], 'Request State', default='draft', readonly=True
+         # ], 'Request State', default='draft', readonly=True
+         ], 'Request State', readonly=True
     )
 
-    @api.model
-    def is_allowed_transition(self, old_state, new_state):
-        # allowed = [
-        #     ('draft', 'received'),
-        # ]
-        # return (old_state, new_state) in allowed
-        return True
+    # @api.model
+    # def is_allowed_transition(self, old_state, new_state):
+    #     # allowed = [
+    #     #     ('draft', 'received'),
+    #     # ]
+    #     # return (old_state, new_state) in allowed
+    #     return True
 
-    def change_state(self, new_state):
-        for lab_test_request in self:
-            if lab_test_request.is_allowed_transition(lab_test_request.state, new_state):
-                lab_test_request.state = new_state
-            else:
-                raise UserError(
-                    'Status transition (' + lab_test_request.state + ', ' + new_state + ') is not allowed!')
+    # def change_state(self, new_state):
+    #     for lab_test_request in self:
+    #         if lab_test_request.is_allowed_transition(lab_test_request.state, new_state):
+    #             lab_test_request.state = new_state
+    #         else:
+    #             raise UserError(
+    #                 'Status transition (' + lab_test_request.state + ', ' + new_state + ') is not allowed!')
 
     def action_draft(self):
-        for lab_test_request in self:
-            lab_test_request.change_state('draft')
+        # for lab_test_request in self:
+        #     lab_test_request.change_state('draft')
+        pass
 
     def action_received(self):
-        for lab_test_request in self:
-            lab_test_request.change_state('received')
+        # for lab_test_request in self:
+        #     lab_test_request.change_state('received')
+        pass
 
     def action_cancel(self):
-        for lab_test_request in self:
-            lab_test_request.change_state('cancelled')
+        # for lab_test_request in self:
+        #     lab_test_request.change_state('cancelled')
+        pass

@@ -4,7 +4,7 @@
 
 <odoo>
         
-    <record id="clv_lab_test_request_view_form_referenceable_model" model="ir.ui.view">
+    <!--record id="clv_lab_test_request_view_form_referenceable_model" model="ir.ui.view">
         <field name="name">clv.lab_test.request.form</field>
         <field name="model">clv.lab_test.request</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_form"/>
@@ -20,9 +20,9 @@
                 <field name="ref_code"/>
             </group>
         </field>
-    </record>
+    </record-->
 
-    <record id="clv_lab_test_request_view_tree_referenceable_model" model="ir.ui.view">
+    <!--record id="clv_lab_test_request_view_tree_referenceable_model" model="ir.ui.view">
         <field name="name">clv.lab_test.request.tree</field>
         <field name="model">clv.lab_test.request</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_tree"/>
@@ -32,9 +32,9 @@
                 <field name="ref_id"/>
             </field>
         </field>
-    </record>
+    </record-->
 
-    <record id="clv_lab_test_request_view_search_referenceable_model" model="ir.ui.view">
+    <!--record id="clv_lab_test_request_view_search_referenceable_model" model="ir.ui.view">
         <field name="name">clv.lab_test.request.search</field>
         <field name="model">clv.lab_test.request</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_search"/>
@@ -51,7 +51,7 @@
                 <filter name="filter_ref_name" string="Refers to (Name)" context="{'group_by': 'ref_name'}"/>
             </group>
         </field>
-    </record>
+    </record-->
 
     <record id="clv_lab_test_result_view_form_referenceable_model" model="ir.ui.view">
         <field name="name">clv.lab_test.result.form</field>
@@ -99,7 +99,7 @@
         </field>
     </record>
 
-    <record id="clv_lab_test_report_view_form_referenceable_model" model="ir.ui.view">
+    <!--record id="clv_lab_test_report_view_form_referenceable_model" model="ir.ui.view">
         <field name="name">clv.lab_test.report.form</field>
         <field name="model">clv.lab_test.report</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_report_view_form"/>
@@ -112,9 +112,9 @@
                 <field name="ref_code"/>
             </group>
         </field>
-    </record>
+    </record-->
 
-    <record id="clv_lab_test_report_view_tree_referenceable_model" model="ir.ui.view">
+    <!--record id="clv_lab_test_report_view_tree_referenceable_model" model="ir.ui.view">
         <field name="name">clv.lab_test.report.tree</field>
         <field name="model">clv.lab_test.report</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_report_view_tree"/>
@@ -124,9 +124,9 @@
                 <field name="ref_id"/>
             </field>
         </field>
-    </record>
+    </record-->
 
-    <record id="clv_lab_test_report_view_search_referenceable_model" model="ir.ui.view">
+    <!--record id="clv_lab_test_report_view_search_referenceable_model" model="ir.ui.view">
         <field name="name">clv.lab_test.report.search</field>
         <field name="model">clv.lab_test.report</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_report_view_search"/>
@@ -143,6 +143,6 @@
                 <filter name="filter_ref_name" string="Refers to (Name)" context="{'group_by': 'ref_name'}"/>
             </group>
         </field>
-    </record>
+    </record-->
 
 </odoo>

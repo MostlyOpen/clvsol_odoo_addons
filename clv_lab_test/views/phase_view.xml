@@ -75,7 +75,7 @@
         </field>
     </record>
 
-    <record id="clv_phase_view_form_lab_test_request" model="ir.ui.view">
+    <!--record id="clv_phase_view_form_lab_test_request" model="ir.ui.view">
         <field name="name">clv.phase.form</field>
         <field name="model">clv.phase</field>
         <field name="inherit_id" ref="clv_phase.clv_phase_view_form"/>
@@ -105,9 +105,9 @@
                 </group>
             </page>
         </field>
-    </record>
+    </record-->
 
-    <record id="clv_lab_test_request_view_form_phase" model="ir.ui.view">
+    <!--record id="clv_lab_test_request_view_form_phase" model="ir.ui.view">
         <field name="name">clv.lab_test.request.form</field>
         <field name="model">clv.lab_test.request</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_form"/>
@@ -117,9 +117,9 @@
                 <field name="phase_id" options='{"no_open": True, "no_create": True}'/>
             </group>
         </field>
-    </record>
+    </record-->
 
-    <record id="clv_lab_test_request_view_tree_phase" model="ir.ui.view">
+    <!--record id="clv_lab_test_request_view_tree_phase" model="ir.ui.view">
         <field name="name">clv.lab_test.request.tree</field>
         <field name="model">clv.lab_test.request</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_tree"/>
@@ -129,9 +129,9 @@
                 <field name="phase_id" groups="clv_phase.group_user"/>
             </field>
         </field>
-    </record>
+    </record-->
 
-    <record id="clv_lab_test_request_view_search_phase" model="ir.ui.view">
+    <!--record id="clv_lab_test_request_view_search_phase" model="ir.ui.view">
         <field name="name">clv.lab_test.request.search</field>
         <field name="model">clv.lab_test.request</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_search"/>
@@ -144,7 +144,7 @@
                 <filter name="group_by_phase_id" string="Phase" context="{'group_by': 'phase_id'}"/>
             </group>
         </field>
-    </record>
+    </record-->
 
     <record id="clv_phase_view_form_lab_test_result" model="ir.ui.view">
         <field name="name">clv.phase.form</field>
@@ -217,7 +217,7 @@
         </field>
     </record>
 
-    <record id="clv_phase_view_form_lab_test_report" model="ir.ui.view">
+    <!--record id="clv_phase_view_form_lab_test_report" model="ir.ui.view">
         <field name="name">clv.phase.form</field>
         <field name="model">clv.phase</field>
         <field name="inherit_id" ref="clv_phase.clv_phase_view_form"/>
@@ -247,9 +247,9 @@
                 </group>
             </page>
         </field>
-    </record>
+    </record-->
 
-    <record id="clv_lab_test_report_view_form_phase" model="ir.ui.view">
+    <!--record id="clv_lab_test_report_view_form_phase" model="ir.ui.view">
         <field name="name">clv.lab_test.report.form</field>
         <field name="model">clv.lab_test.report</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_report_view_form"/>
@@ -259,9 +259,9 @@
                 <field name="phase_id" options='{"no_open": True, "no_create": True}'/>
             </group>
         </field>
-    </record>
+    </record-->
 
-    <record id="clv_lab_test_report_view_tree_phase" model="ir.ui.view">
+    <!--record id="clv_lab_test_report_view_tree_phase" model="ir.ui.view">
         <field name="name">clv.lab_test.report.tree</field>
         <field name="model">clv.lab_test.report</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_report_view_tree"/>
@@ -271,9 +271,9 @@
                 <field name="phase_id" groups="clv_phase.group_user"/>
             </field>
         </field>
-    </record>
+    </record-->
 
-    <record id="clv_lab_test_report_view_search_phase" model="ir.ui.view">
+    <!--record id="clv_lab_test_report_view_search_phase" model="ir.ui.view">
         <field name="name">clv.lab_test.report.search</field>
         <field name="model">clv.lab_test.report</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_report_view_search"/>
@@ -286,7 +286,7 @@
                 <filter name="group_by_phase_id" string="Phase" context="{'group_by': 'phase_id'}"/>
             </group>
         </field>
-    </record>
+    </record-->
 
     <record id="clv_lab_test_criterion_view_form_phase" model="ir.ui.view">
         <field name="name">clv.lab_test.criterion.form</field>
@@ -300,9 +300,9 @@
             <field name="lab_test_result_id" position="after">
                 <field name="lab_test_result_phase_id" options='{"no_open": True, "no_create": True}'/>
             </field>
-            <field name="lab_test_report_id" position="after">
+            <!--field name="lab_test_report_id" position="after">
                 <field name="lab_test_report_phase_id" options='{"no_open": True, "no_create": True}'/>
-            </field>
+            </field-->
         </field>
     </record>
 
@@ -318,9 +318,9 @@
             <field name="lab_test_result_id" position="after">
                 <field name="lab_test_result_phase_id"/>
             </field>
-            <field name="lab_test_report_id" position="after">
+            <!--field name="lab_test_report_id" position="after">
                 <field name="lab_test_report_phase_id"/>
-            </field>
+            </field-->
         </field>
     </record>
 
@@ -339,7 +339,7 @@
             <group name="group_by" position="inside">
                 <filter name="group_by_lab_test_type_phase_id" string="Lab Test Type Phase" context="{'group_by': 'lab_test_type_phase_id'}"/>
                 <filter name="group_by_lab_test_result_phase_id" string="Lab Test Result Phase" context="{'group_by': 'lab_test_result_phase_id'}"/>
-                <filter name="group_by_lab_test_report_phase_id" string="Lab Test Report Phase" context="{'group_by': 'lab_test_report_phase_id'}"/>
+                <!--filter name="group_by_lab_test_report_phase_id" string="Lab Test Report Phase" context="{'group_by': 'lab_test_report_phase_id'}"/-->
             </group>
         </field>
     </record>

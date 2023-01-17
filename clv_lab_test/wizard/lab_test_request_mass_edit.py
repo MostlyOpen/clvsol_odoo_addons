@@ -29,67 +29,67 @@ class LabTestRequestMassEdit(models.TransientModel):
     _description = 'Lab Test Request Mass Edit'
     _name = 'clv.lab_test.request.mass_edit'
 
-    def _default_lab_test_request_ids(self):
-        return self._context.get('active_ids')
-    lab_test_request_ids = fields.Many2many(
-        comodel_name='clv.lab_test.request',
-        relation='clv_lab_test_request_mass_edit_rel',
-        string='Lab Test Requests',
-        default=_default_lab_test_request_ids
-    )
+    # def _default_lab_test_request_ids(self):
+    #     return self._context.get('active_ids')
+    # lab_test_request_ids = fields.Many2many(
+    #     comodel_name='clv.lab_test.request',
+    #     relation='clv_lab_test_request_mass_edit_rel',
+    #     string='Lab Test Requests',
+    #     default=_default_lab_test_request_ids
+    # )
 
-    date_request = fields.Date(string='Date of the Request', default=False, readonly=False, required=False)
-    date_request_selection = fields.Selection(
-        [('set', 'Set'),
-         ('remove', 'Remove'),
-         ], string='Date of the Request:', default=False, readonly=False, required=False
-    )
+    # date_request = fields.Date(string='Date of the Request', default=False, readonly=False, required=False)
+    # date_request_selection = fields.Selection(
+    #     [('set', 'Set'),
+    #      ('remove', 'Remove'),
+    #      ], string='Date of the Request:', default=False, readonly=False, required=False
+    # )
 
-    phase_id = fields.Many2one(
-        comodel_name='clv.phase',
-        string='Phase'
-    )
-    phase_id_selection = fields.Selection(
-        [('set', 'Set'),
-         ('remove', 'Remove'),
-         ], string='Phase:', default=False, readonly=False, required=False
-    )
+    # phase_id = fields.Many2one(
+    #     comodel_name='clv.phase',
+    #     string='Phase'
+    # )
+    # phase_id_selection = fields.Selection(
+    #     [('set', 'Set'),
+    #      ('remove', 'Remove'),
+    #      ], string='Phase:', default=False, readonly=False, required=False
+    # )
 
-    @api.model
-    def referenceable_models(self):
-        return [(ref.model, ref.name) for ref in self.env['clv.referenceable.model'].search([
-            ('base_model', '=', 'clv.lab_test.request'),
-        ])]
+    # @api.model
+    # def referenceable_models(self):
+    #     return [(ref.model, ref.name) for ref in self.env['clv.referenceable.model'].search([
+    #         ('base_model', '=', 'clv.lab_test.request'),
+    #     ])]
 
-    ref_id = fields.Reference(
-        selection='referenceable_models',
-        string='Refers to')
-    ref_id_selection = fields.Selection(
-        [('set', 'Set'),
-         ('remove', 'Remove'),
-         ], string='Refers to:', default=False, readonly=False, required=False
-    )
+    # ref_id = fields.Reference(
+    #     selection='referenceable_models',
+    #     string='Refers to')
+    # ref_id_selection = fields.Selection(
+    #     [('set', 'Set'),
+    #      ('remove', 'Remove'),
+    #      ], string='Refers to:', default=False, readonly=False, required=False
+    # )
 
-    def do_lab_test_request_mass_edit(self):
-        self.ensure_one()
+    # def do_lab_test_request_mass_edit(self):
+    #     self.ensure_one()
 
-        for lab_test_request in self.lab_test_request_ids:
+    #     for lab_test_request in self.lab_test_request_ids:
 
-            _logger.info(u'%s %s', '>>>>>', lab_test_request.code)
+    #         _logger.info(u'%s %s', '>>>>>', lab_test_request.code)
 
-            if self.date_request_selection == 'set':
-                lab_test_request.date_request = self.date_request
-            if self.date_request_selection == 'remove':
-                lab_test_request.date_request = False
+    #         if self.date_request_selection == 'set':
+    #             lab_test_request.date_request = self.date_request
+    #         if self.date_request_selection == 'remove':
+    #             lab_test_request.date_request = False
 
-            if self.phase_id_selection == 'set':
-                lab_test_request.phase_id = self.phase_id
-            if self.phase_id_selection == 'remove':
-                lab_test_request.phase_id = False
+    #         if self.phase_id_selection == 'set':
+    #             lab_test_request.phase_id = self.phase_id
+    #         if self.phase_id_selection == 'remove':
+    #             lab_test_request.phase_id = False
 
-            if self.ref_id_selection == 'set':
-                lab_test_request.ref_id = self.ref_id
-            if self.ref_id_selection == 'remove':
-                lab_test_request.ref_id = False
+    #         if self.ref_id_selection == 'set':
+    #             lab_test_request.ref_id = self.ref_id
+    #         if self.ref_id_selection == 'remove':
+    #             lab_test_request.ref_id = False
 
-        return True
+    #     return True

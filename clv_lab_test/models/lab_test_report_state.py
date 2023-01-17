@@ -2,8 +2,9 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
-from odoo.exceptions import UserError
+# from odoo import api, fields, models
+from odoo import fields, models
+# from odoo.exceptions import UserError
 
 
 class LabTestResult(models.Model):
@@ -14,37 +15,42 @@ class LabTestResult(models.Model):
          ('available', 'Available'),
          ('approved', 'Approved'),
          ('discarded', 'Discarded')
-         ], string='Report State', default='new', readonly=True, required=True
+         # ], string='Report State', default='new', readonly=True, required=True
+         ], string='Report State', readonly=True,
     )
 
-    @api.model
-    def is_allowed_transition(self, old_state, new_state):
-        # allowed = [
-        #     ('discarded', 'new'),
-        #     ('new', 'available'),
-        # ]
-        # return (old_state, new_state) in allowed
-        return True
+    # @api.model
+    # def is_allowed_transition(self, old_state, new_state):
+    #     # allowed = [
+    #     #     ('discarded', 'new'),
+    #     #     ('new', 'available'),
+    #     # ]
+    #     # return (old_state, new_state) in allowed
+    #     return True
 
-    def change_state(self, new_state):
-        for lab_test_report in self:
-            if lab_test_report.is_allowed_transition(lab_test_report.state, new_state):
-                lab_test_report.state = new_state
-            else:
-                raise UserError('Status transition (' + lab_test_report.state + ', ' + new_state + ') is not allowed!')
+    # def change_state(self, new_state):
+    #     for lab_test_report in self:
+    #         if lab_test_report.is_allowed_transition(lab_test_report.state, new_state):
+    #             lab_test_report.state = new_state
+    #         else:
+    #             raise UserError('Status transition (' + lab_test_report.state + ', ' + new_state + ') is not allowed!')
 
     def action_new(self):
-        for lab_test_report in self:
-            lab_test_report.change_state('new')
+        # for lab_test_report in self:
+        #     lab_test_report.change_state('new')
+        pass
 
     def action_available(self):
-        for lab_test_report in self:
-            lab_test_report.change_state('available')
+        # for lab_test_report in self:
+        #     lab_test_report.change_state('available')
+        pass
 
     def action_approve(self):
-        for lab_test_report in self:
-            lab_test_report.change_state('approved')
+        # for lab_test_report in self:
+        #     lab_test_report.change_state('approved')
+        pass
 
     def action_discard(self):
-        for lab_test_report in self:
-            lab_test_report.change_state('discarded')
+        # for lab_test_report in self:
+        #     lab_test_report.change_state('discarded')
+        pass

@@ -31,9 +31,13 @@ class Phase(models.Model):
             record.count_lab_test_types = len(lab_test_types)
             record.lab_test_type_ids = [(6, 0, lab_test_types.ids)]
 
-    lab_test_request_ids = fields.One2many(
-        comodel_name='clv.lab_test.request',
-        inverse_name='phase_id',
+    # lab_test_request_ids = fields.One2many(
+    #     comodel_name='clv.lab_test.request',
+    #     inverse_name='phase_id',
+    #     string='Lab Test Requests',
+    #     readonly=True
+    # )
+    lab_test_request_ids = fields.Integer(
         string='Lab Test Requests',
         readonly=True
     )
@@ -42,17 +46,22 @@ class Phase(models.Model):
         compute='_compute_lab_test_request_ids_and_count',
     )
 
+    # def _compute_lab_test_request_ids_and_count(self):
+    #     for record in self:
+
+    #         search_domain = [
+    #             ('phase_id', '=', record.id),
+    #         ]
+
+    #         lab_test_requests = self.env['clv.lab_test.request'].search(search_domain)
+
+    #         record.count_lab_test_requests = len(lab_test_requests)
+    #         record.lab_test_request_ids = [(6, 0, lab_test_requests.ids)]
     def _compute_lab_test_request_ids_and_count(self):
         for record in self:
 
-            search_domain = [
-                ('phase_id', '=', record.id),
-            ]
-
-            lab_test_requests = self.env['clv.lab_test.request'].search(search_domain)
-
-            record.count_lab_test_requests = len(lab_test_requests)
-            record.lab_test_request_ids = [(6, 0, lab_test_requests.ids)]
+            record.count_lab_test_requests = False
+            record.lab_test_request_ids = False
 
     lab_test_result_ids = fields.One2many(
         comodel_name='clv.lab_test.result',
@@ -77,9 +86,13 @@ class Phase(models.Model):
             record.count_lab_test_results = len(lab_test_results)
             record.lab_test_result_ids = [(6, 0, lab_test_results.ids)]
 
-    lab_test_report_ids = fields.One2many(
-        comodel_name='clv.lab_test.report',
-        inverse_name='phase_id',
+    # lab_test_report_ids = fields.One2many(
+    #     comodel_name='clv.lab_test.report',
+    #     inverse_name='phase_id',
+    #     string='Lab Test Reports',
+    #     readonly=True
+    # )
+    lab_test_report_ids = fields.Integer(
         string='Lab Test Reports',
         readonly=True
     )
@@ -88,17 +101,22 @@ class Phase(models.Model):
         compute='_compute_lab_test_report_ids_and_count',
     )
 
+    # def _compute_lab_test_report_ids_and_count(self):
+    #     for record in self:
+
+    #         search_domain = [
+    #             ('phase_id', '=', record.id),
+    #         ]
+
+    #         lab_test_reports = self.env['clv.lab_test.report'].search(search_domain)
+
+    #         record.count_lab_test_reports = len(lab_test_reports)
+    #         record.lab_test_report_ids = [(6, 0, lab_test_reports.ids)]
     def _compute_lab_test_report_ids_and_count(self):
         for record in self:
 
-            search_domain = [
-                ('phase_id', '=', record.id),
-            ]
-
-            lab_test_reports = self.env['clv.lab_test.report'].search(search_domain)
-
-            record.count_lab_test_reports = len(lab_test_reports)
-            record.lab_test_report_ids = [(6, 0, lab_test_reports.ids)]
+            record.count_lab_test_reports = False
+            record.lab_test_report_ids = False
 
 
 class LabTestType(models.Model):
@@ -111,14 +129,14 @@ class LabTestType(models.Model):
     )
 
 
-class LabTestRequest(models.Model):
-    _inherit = 'clv.lab_test.request'
+# class LabTestRequest(models.Model):
+#     _inherit = 'clv.lab_test.request'
 
-    phase_id = fields.Many2one(
-        comodel_name='clv.phase',
-        string='Phase',
-        ondelete='restrict'
-    )
+#     phase_id = fields.Many2one(
+#         comodel_name='clv.phase',
+#         string='Phase',
+#         ondelete='restrict'
+#     )
 
 
 class LabTestResult(models.Model):
@@ -131,14 +149,14 @@ class LabTestResult(models.Model):
     )
 
 
-class LabTestReport(models.Model):
-    _inherit = 'clv.lab_test.report'
+# class LabTestReport(models.Model):
+#     _inherit = 'clv.lab_test.report'
 
-    phase_id = fields.Many2one(
-        comodel_name='clv.phase',
-        string='Phase',
-        ondelete='restrict'
-    )
+#     phase_id = fields.Many2one(
+#         comodel_name='clv.phase',
+#         string='Phase',
+#         ondelete='restrict'
+#     )
 
 
 class LabTestCriterion(models.Model):
@@ -157,9 +175,12 @@ class LabTestCriterion(models.Model):
         store=True
     )
 
-    lab_test_report_phase_id = fields.Many2one(
-        comodel_name='clv.phase',
+    # lab_test_report_phase_id = fields.Many2one(
+    #     comodel_name='clv.phase',
+    #     string='Lab Test Report Phase',
+    #     related='lab_test_report_id.phase_id',
+    #     store=True
+    # )
+    lab_test_report_phase_id = fields.Integer(
         string='Lab Test Report Phase',
-        related='lab_test_report_id.phase_id',
-        store=True
     )

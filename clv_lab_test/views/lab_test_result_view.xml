@@ -21,9 +21,6 @@
                     </div>
                     <div name="title" class="oe_title">
                         <label for="lab_test_type_id" class="oe_edit_only"/>
-                        <!--h3>
-                            <field name="lab_test_type_id" default_focus="1" placeholder="Lab Test Type..." options="{'no_open': False, 'no_create': True}"/> (<field name="lab_test_type_code"/>)
-                        </h3-->
                         <h3>
                             <field name="lab_test_type_id" default_focus="1" placeholder="Lab Test Type..." options="{'no_open': False, 'no_create': True}"/>
                         </h3>
@@ -34,7 +31,6 @@
                     </div>
                     <group name="group_top">
                         <group name="group_left">
-                            <!-- <field name="lab_test_request_id" default_focus="1" placeholder="Lab Test Request..." options="{'no_open': False, 'no_create': True}"/> -->
                             <field name="date_inclusion"/>
                         </group>
                         <group name="group_right">
@@ -89,7 +85,6 @@
             <tree name="lab_test_results" string='Lab Test Results'>
                 <field name="code"/>
                 <field name="lab_test_type_id"/>
-                <!-- <field name="lab_test_request_id"/> -->
                 <field name="lab_test_request_id" invisible="1"/>
             </tree>
         </field>
@@ -103,12 +98,10 @@
             <search string="Lab Test">
                 <field name="code"/>
                 <field name="lab_test_type_id"/>
-                <!-- <field name="lab_test_request_id"/> -->
                 <separator/>
                 <filter name="inactive" string="Archived" domain="[('active','=',False)]"/>
                 <group name="group_by" expand="0" string="Group By...">
                     <filter name="filter_lab_test_type_id" string="Lab Test Type" domain="[]" context="{'group_by': 'lab_test_type_id'}"/>
-                    <!-- <filter name="filter_lab_test_request_id" string="Lab Test Request" domain="[]" context="{'group_by': 'lab_test_request_id'}"/> -->
                 </group>
             </search>
         </field>
@@ -144,40 +137,5 @@
             </page>
         </field>
     </record>
-
-    <!--record id="clv_lab_test_request_view_form_result" model="ir.ui.view">
-        <field name="name">clv.lab_test.request.form</field>
-        <field name="model">clv.lab_test.request</field>
-        <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_form"/>
-        <field name="priority" eval="8"/>
-        <field name="arch" type="xml">
-            <page name="settings" position="before">
-                <page string="Lab Test Results">
-                    <group>
-                        <group>
-                            <field name="count_lab_test_results"/>
-                        </group>
-                        <group>
-                            <button name="clv_lab_test.clv_lab_test_result_action"
-                                    type="action"
-                                    class="oe_stat_button"
-                                    icon="fa-list"
-                                    context="{'search_default_lab_test_request_id': id}"
-                                    attrs="{'invisible': [('count_lab_test_results_2', '=', 0)]}"
-                                    >
-                                <div class="o_form_field o_stat_info">
-                                    <span class="o_stat_value">
-                                        <field name="count_lab_test_results_2"/>
-                                    </span>
-                                    <span class="o_stat_text"> Lab Test Result(s)</span>
-                                </div>
-                            </button>
-                        </group>
-                    </group>
-                    <field name="lab_test_result_ids" colspan="4" nolabel="1"/>
-                </page>
-            </page>
-        </field>
-    </record-->
 
 </odoo>

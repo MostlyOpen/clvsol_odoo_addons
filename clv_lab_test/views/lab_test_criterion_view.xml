@@ -25,7 +25,6 @@
                             <group>
                                 <field name="lab_test_type_id" options="{'no_open': False, 'no_create': True}"/>
                                 <field name="lab_test_result_id" options="{'no_open': False, 'no_create': True}"/>
-                                <!-- <field name="lab_test_report_id" options="{'no_open': False, 'no_create': True}"/> -->
                                 <field name="lab_test_report_id" options="{'no_open': False, 'no_create': True}" invisible="1"/>
                             </group>
                         </page>
@@ -74,7 +73,6 @@
                 <field name="result"/>
                 <field name="lab_test_type_id"/>
                 <field name="lab_test_result_id"/>
-                <!-- <field name="lab_test_report_id"/> -->
                 <field name="lab_test_report_id" invisible="1"/>
             </tree>
         </field>
@@ -87,7 +85,6 @@
             <search string="Search Lab Test Criteria">
                 <field name="lab_test_type_id"/>
                 <field name="lab_test_result_id"/>
-                <!-- <field name="lab_test_report_id"/> -->
                 <field name="code"/>
                 <field name="name"/>
                 <separator/>
@@ -95,7 +92,6 @@
                 <group name="group_by" expand="0" string="Group By...">
                     <filter name="filter_lab_test_type_id" string="Lab Test Type" domain="[]" context="{'group_by': 'lab_test_type_id'}"/>
                     <filter name="filter_lab_test_result_id" string="Lab Test Result" domain="[]" context="{'group_by': 'lab_test_result_id'}"/>
-                    <!-- <filter name="filter_lab_test_report_id" string="Lab Test Report" domain="[]" context="{'group_by': 'lab_test_report_id'}"/> -->
                 </group>
             </search>
         </field>
@@ -152,24 +148,5 @@
             </group>
         </field>
     </record>
-
-    <!--record id="clv_lab_test_report_view_form_criterion" model="ir.ui.view">
-        <field name="name">clv.lab_test.report.form</field>
-        <field name="model">clv.lab_test.report</field>
-        <field name="inherit_id" ref="clv_lab_test.clv_lab_test_report_view_form"/>
-        <field name="priority" eval="8"/>
-        <field name="arch" type="xml">
-            <group name="group_middle" position="after">
-                <field name="criterion_ids" colspan="4" nolabel="1">
-                    <tree editable="top" string="Test Cases" create="false">
-                        <field name="sequence" readonly="True"/>
-                        <field name="code" readonly="True"/>
-                        <field name="name" readonly="True"/>
-                        <field name="result"/>
-                    </tree>
-                </field>
-            </group>
-        </field>
-    </record-->
 
 </odoo>

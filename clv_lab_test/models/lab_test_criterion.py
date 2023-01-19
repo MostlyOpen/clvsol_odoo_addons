@@ -69,13 +69,8 @@ class LabTestResult(models.Model):
 class LabTestReport(models.Model):
     _inherit = 'clv.lab_test.report'
 
-    # criterion_ids = fields.One2many(
-    #     comodel_name='clv.lab_test.criterion',
-    #     inverse_name='lab_test_report_id',
-    #     readonly=True,
-    #     string='Test Cases'
-    # )
     criterion_ids = fields.Integer(
         readonly=True,
-        string='Test Cases'
+        string='Test Cases',
+        default=True
     )

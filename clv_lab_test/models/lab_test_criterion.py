@@ -19,7 +19,8 @@ class LabTestTypeCriterion(models.Model):
 
     lab_test_result_id = fields.Many2one(comodel_name='clv.lab_test.result', string='Test Result')
 
-    lab_test_report_id = fields.Many2one(comodel_name='clv.lab_test.report', string='Test Report')
+    # lab_test_report_id = fields.Many2one(comodel_name='clv.lab_test.report', string='Test Report')
+    lab_test_report_id = fields.Integer(string='Test Report')
 
     sequence = fields.Integer(
         string='Sequence',
@@ -37,10 +38,10 @@ class LabTestTypeCriterion(models.Model):
          'UNIQUE(lab_test_result_id, code)',
          u'Error! The Code must be unique for a Test Result!'
          ),
-        ('report_code_uniq',
-         'UNIQUE(lab_test_report_id, code)',
-         u'Error! The Code must be unique for a Test Report!'
-         ),
+        # ('report_code_uniq',
+        #  'UNIQUE(lab_test_report_id, code)',
+        #  u'Error! The Code must be unique for a Test Report!'
+        #  ),
     ]
 
 
@@ -68,9 +69,8 @@ class LabTestResult(models.Model):
 class LabTestReport(models.Model):
     _inherit = 'clv.lab_test.report'
 
-    criterion_ids = fields.One2many(
-        comodel_name='clv.lab_test.criterion',
-        inverse_name='lab_test_report_id',
+    criterion_ids = fields.Integer(
         readonly=True,
-        string='Test Cases'
+        string='Test Cases',
+        default=True
     )

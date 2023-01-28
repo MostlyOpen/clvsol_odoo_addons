@@ -31,28 +31,16 @@ class Phase(models.Model):
             record.count_lab_test_types = len(lab_test_types)
             record.lab_test_type_ids = [(6, 0, lab_test_types.ids)]
 
-    lab_test_request_ids = fields.One2many(
-        comodel_name='clv.lab_test.request',
-        inverse_name='phase_id',
+    lab_test_request_ids = fields.Integer(
         string='Lab Test Requests',
+        default=False,
         readonly=True
     )
     count_lab_test_requests = fields.Integer(
         string='Lab Test Requests (count)',
-        compute='_compute_lab_test_request_ids_and_count',
+        default=False,
+        readonly=True
     )
-
-    def _compute_lab_test_request_ids_and_count(self):
-        for record in self:
-
-            search_domain = [
-                ('phase_id', '=', record.id),
-            ]
-
-            lab_test_requests = self.env['clv.lab_test.request'].search(search_domain)
-
-            record.count_lab_test_requests = len(lab_test_requests)
-            record.lab_test_request_ids = [(6, 0, lab_test_requests.ids)]
 
     lab_test_result_ids = fields.One2many(
         comodel_name='clv.lab_test.result',
@@ -77,28 +65,16 @@ class Phase(models.Model):
             record.count_lab_test_results = len(lab_test_results)
             record.lab_test_result_ids = [(6, 0, lab_test_results.ids)]
 
-    lab_test_report_ids = fields.One2many(
-        comodel_name='clv.lab_test.report',
-        inverse_name='phase_id',
+    lab_test_report_ids = fields.Integer(
         string='Lab Test Reports',
+        default=False,
         readonly=True
     )
     count_lab_test_reports = fields.Integer(
         string='Lab Test Reports (count)',
-        compute='_compute_lab_test_report_ids_and_count',
+        default=False,
+        readonly=True
     )
-
-    def _compute_lab_test_report_ids_and_count(self):
-        for record in self:
-
-            search_domain = [
-                ('phase_id', '=', record.id),
-            ]
-
-            lab_test_reports = self.env['clv.lab_test.report'].search(search_domain)
-
-            record.count_lab_test_reports = len(lab_test_reports)
-            record.lab_test_report_ids = [(6, 0, lab_test_reports.ids)]
 
 
 class LabTestType(models.Model):
@@ -111,28 +87,8 @@ class LabTestType(models.Model):
     )
 
 
-class LabTestRequest(models.Model):
-    _inherit = 'clv.lab_test.request'
-
-    phase_id = fields.Many2one(
-        comodel_name='clv.phase',
-        string='Phase',
-        ondelete='restrict'
-    )
-
-
 class LabTestResult(models.Model):
     _inherit = 'clv.lab_test.result'
-
-    phase_id = fields.Many2one(
-        comodel_name='clv.phase',
-        string='Phase',
-        ondelete='restrict'
-    )
-
-
-class LabTestReport(models.Model):
-    _inherit = 'clv.lab_test.report'
 
     phase_id = fields.Many2one(
         comodel_name='clv.phase',
@@ -157,9 +113,8 @@ class LabTestCriterion(models.Model):
         store=True
     )
 
-    lab_test_report_phase_id = fields.Many2one(
-        comodel_name='clv.phase',
+    lab_test_report_phase_id = fields.Integer(
         string='Lab Test Report Phase',
-        related='lab_test_report_id.phase_id',
-        store=True
+        default=False,
+        readonly=True
     )

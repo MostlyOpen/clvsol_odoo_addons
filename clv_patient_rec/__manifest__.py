@@ -5,7 +5,7 @@
 {
     'name': 'Patient (Rec)',
     'summary': 'Patient (Rec) Module used by CLVsol Solutions.',
-    'version': '15.0.6.0',
+    'version': '15.0.6.1',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'CLVsol Solutions',
     'license': 'AGPL-3',

@@ -4,10 +4,10 @@
 
 <odoo>
 
-    <menuitem name="Patients (Aux)" id="clv_patient_aux.menu_health_config_patient_patients_aux"
+    <menuitem name="Patients (Rec)" id="clv_patient_rec.menu_health_config_patient_patients_rec"
         parent="clv_patient.menu_health_config_patient"
-        groups="clv_patient_aux.group_user"
-        sequence="50"
-        action="clv_patient_aux.clv_patient_aux_action"/>
+        groups="clv_patient_rec.group_user"
+        sequence="60"
+        action="clv_patient_rec.clv_patient_rec_action"/>
 
 </odoo>

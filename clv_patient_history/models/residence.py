@@ -32,3 +32,9 @@ class PatientHistory(models.Model):
         string='Residence',
         ondelete='restrict'
     )
+
+    residence_category_ids = fields.Char(
+        string='Residence Categories',
+        related='residence_id.category_ids.name',
+        store=True
+    )

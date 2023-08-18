@@ -5,7 +5,7 @@
 {
     'name': 'Patient History',
     'summary': 'Patient History Module used in CLVsol Solutions.',
-    'version': '15.0.6.0',
+    'version': '15.0.6.1',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'CLVsol Solutions',
     'license': 'AGPL-3',

@@ -99,7 +99,8 @@ class PatientHistoryUpdate(models.TransientModel):
                         'reg_state': patient.reg_state,
                         'employee_id': patient.employee_id.id,
                         'patient_id': patient.id,
-                        'age_years': patient.age_years,
+                        'date_reference': patient.date_reference,
+                        'age_reference_years': patient.age_reference_years,
                         'category_ids': category_ids,
                         'marker_ids': marker_ids,
                         'tag_ids': tag_ids,
@@ -113,8 +114,11 @@ class PatientHistoryUpdate(models.TransientModel):
 
                 else:
 
-                    if patient_history.age_years != patient.age_years:
-                        patient_history.age_years = patient.age_years
+                    if patient_history.date_reference != patient.date_reference:
+                        patient_history.date_reference = patient.date_reference
+
+                    if patient_history.age_reference_years != patient.age_reference_years:
+                        patient_history.age_reference_years = patient.age_reference_years
 
                     if patient_history.state != patient.state:
                         patient_history.state = patient.state

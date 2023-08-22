@@ -14,8 +14,12 @@ class PatientHistory(models.Model):
         ondelete='restrict'
     )
 
-    age_years = fields.Char(
-        string="Age (years old)",
+    date_reference = fields.Date(
+        string="Reference Date",
+    )
+
+    age_reference_years = fields.Char(
+        string="Reference Age (years old)",
     )
 
     address_name = fields.Char(

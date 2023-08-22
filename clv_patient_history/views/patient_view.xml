@@ -48,7 +48,8 @@
             <group name="history" position="after">
                 <group name="patient">
                     <field name="patient_id" options="{'no_open': False, 'no_create': True}"/>
-                    <field name="age_years"/>
+                    <field name="date_reference"/>
+                    <field name="age_reference_years"/>
                     <field name="category_ids" widget="many2many_tags" options="{'no_open': False, 'no_create': True}"/>
                     <field name="address_name"/>
                     <field name="marker_ids" widget="many2many_tags" options="{'no_open': False, 'no_create': True}"/>
@@ -66,7 +67,7 @@
         <field name="arch" type="xml">
             <field name="date_sign_out" position="after">
                 <field name="patient_id"/>
-                <field name="age_years"/>
+                <field name="age_reference_years"/>
                 <field name="category_names"/>
                 <field name="address_name"/>
                 <!--field name="category_names_suport" invisible="True"/-->
@@ -84,7 +85,7 @@
         <field name="arch" type="xml">
             <field name="date_sign_out" position="after">
                 <field name="patient_id"/>
-                <field name="age_years"/>
+                <field name="age_reference_years"/>
                 <field name="category_ids"/>
                 <field name="category_names"/>
                 <field name="address_name"/>
@@ -95,7 +96,7 @@
             </field>
             <group name="group_by" position="inside">
                 <filter name="group_by_patient_id" string="Patient" context="{'group_by': 'patient_id'}"/>
-                <filter name="group_by_age_years" string="Age (years old)" context="{'group_by': 'age_years'}"/>
+                <filter name="group_by_age_reference_years" string="Reference Age (years old)" context="{'group_by': 'age_reference_years'}"/>
                 <filter name="group_by_address_name" string="Address Name" context="{'group_by': 'address_name'}"/>
                 <filter name="group_by_category_names" string="Categories" context="{'group_by': 'category_names'}"/>
                 <filter name="group_by_marker_names" string="Markers" context="{'group_by': 'marker_names'}"/>

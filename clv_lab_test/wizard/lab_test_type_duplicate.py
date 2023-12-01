@@ -13,10 +13,13 @@ class LabTestTypeDuplicate(models.TransientModel):
     _description = 'Lab Test Type Duplicate'
     _name = 'clv.lab_test.type.duplicate'
 
+    def _default_lab_test_type_ids(self):
+        return self._context.get('active_ids')
     lab_test_type_ids = fields.Many2many(
         comodel_name='clv.lab_test.type',
         relation='clv_lab_test_type_duplicate_rel',
-        string='Lab Test Types'
+        string='Lab Test Types',
+        default=_default_lab_test_type_ids
     )
 
     new_name = fields.Char(
@@ -29,12 +32,27 @@ class LabTestTypeDuplicate(models.TransientModel):
         required=True
     )
 
+    new_description = fields.Char(
+        string='New Lab Test Type Description',
+        required=False
+    )
+
+    new_template_file_name_result = fields.Char(
+        string='Template File Name (Result)',
+        required=False
+    )
+
+    new_template_file_name_report = fields.Char(
+        string='Template File Name (Report)',
+        required=False
+    )
+
     @api.model
     def default_get(self, field_names):
 
         defaults = super().default_get(field_names)
 
-        defaults['lab_test_type_ids'] = self.env.context['active_ids']
+        # defaults['lab_test_type_ids'] = self.env.context['active_ids']
 
         LabTestType = self.env['clv.lab_test.type']
         lab_test_type_id = self._context.get('active_id')
@@ -43,6 +61,9 @@ class LabTestTypeDuplicate(models.TransientModel):
         ])
         defaults['new_name'] = lab_test_type.name
         defaults['new_code'] = lab_test_type.code
+        defaults['new_description'] = lab_test_type.description
+        defaults['new_template_file_name_result'] = lab_test_type.template_file_name_result
+        defaults['new_template_file_name_report'] = lab_test_type.template_file_name_report
 
         return defaults
 
@@ -62,8 +83,32 @@ class LabTestTypeDuplicate(models.TransientModel):
             values = {
                 'name': self.new_name,
                 'code': self.new_code,
+                'description': self.new_description,
+                'template_file_name_result': self.new_template_file_name_result,
+                'template_file_name_report': self.new_template_file_name_report,
             }
             new_lab_test_type = LabTestType.create(values)
+
+            export_xls_params = []
+            for export_xls_param in lab_test_type.lab_test_export_xls_param_ids:
+
+                _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', export_xls_params)
+
+                parameter = False
+                if export_xls_param.parameter is not False:
+                    parameter = export_xls_param.parameter.replace(lab_test_type.code, self.new_code)
+                export_xls_params.append((0, 0, {'lab_test_type_id': new_lab_test_type.id,
+                                                 'display': export_xls_param.display,
+                                                 'parameter_type': export_xls_param.parameter_type,
+                                                 'parameter': parameter,
+                                                 'cell': export_xls_param.cell,
+                                                 'col_nr': export_xls_param.col_nr,
+                                                 'row_nr': export_xls_param.col_nr,
+                                                 }))
+
+            new_lab_test_type.lab_test_export_xls_param_ids = export_xls_params
+
+            _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', export_xls_params)
 
             # criteria = []
             # for criterion in lab_test_type.criterion_ids:

@@ -17,6 +17,9 @@
                     <group  name="group_top">
                         <field name="new_name"/>
                         <field name="new_code"/>
+                        <field name="new_description"/>
+                        <field name="new_template_file_name_result"/>
+                        <field name="new_template_file_name_report"/>
                     </group>
                 </sheet>
                 <footer>

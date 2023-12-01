@@ -113,8 +113,8 @@ class LabTestCriterion(models.Model):
         store=True
     )
 
-    lab_test_report_phase_id = fields.Integer(
-        string='Lab Test Report Phase',
-        default=False,
-        readonly=True
-    )
+    # lab_test_report_phase_id = fields.Integer(
+    #     string='Lab Test Report Phase',
+    #     default=False,
+    #     readonly=True
+    # )

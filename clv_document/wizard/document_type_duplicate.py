@@ -13,10 +13,13 @@ class DocumentTypeDuplicate(models.TransientModel):
     _description = 'Document Type Duplicate'
     _name = 'clv.document.type.duplicate'
 
+    def _default_document_type_ids(self):
+        return self._context.get('active_ids')
     document_type_ids = fields.Many2many(
         comodel_name='clv.document.type',
         relation='clv_document_type_duplicate_rel',
-        string='Document Types'
+        string='Document Types',
+        default=_default_document_type_ids
     )
 
     new_name = fields.Char(
@@ -39,7 +42,7 @@ class DocumentTypeDuplicate(models.TransientModel):
 
         defaults = super().default_get(field_names)
 
-        defaults['document_type_ids'] = self.env.context['active_ids']
+        # defaults['document_type_ids'] = self.env.context['active_ids']
 
         DocumentType = self.env['clv.document.type']
         document_type_id = self._context.get('active_id')

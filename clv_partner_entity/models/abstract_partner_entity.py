@@ -103,7 +103,8 @@ class AbstractPartnerEntity(models.AbstractModel):
         """
         if vals.get('image_1920'):
             return False
-        if any((getattr(threading.currentThread(), 'testing', False),
+        # if any((getattr(threading.currentThread(), 'testing', False),
+        if any((getattr(threading.current_thread(), 'testing', False),
                 self._context.get('install_mode'))):
             if not self.env.context.get('__image_create_allow'):
                 return False

@@ -41,18 +41,14 @@ class Patient(models.Model):
     @api.depends('global_tag_ids')
     def _compute_global_tag_names(self):
         for r in self:
-            r.global_tag_names = r.global_tag_names_suport
-
-    def _compute_global_tag_names_suport(self):
-        for r in self:
             global_tag_names = False
             for global_tag in r.global_tag_ids:
                 if global_tag_names is False:
-                    global_tag_names = global_tag.complete_name
+                    global_tag_names = global_tag.name
                 else:
-                    global_tag_names = global_tag_names + ', ' + global_tag.complete_name
-            r.global_tag_names_suport = global_tag_names
-            if r.global_tag_names != global_tag_names:
-                if isinstance(r.id, int):
-                    record = self.env['clv.patient'].search([('id', '=', r.id)])
-                    record.write({'global_tag_ids': r.global_tag_ids})
+                    global_tag_names = global_tag_names + ', ' + global_tag.name
+            r.global_tag_names = global_tag_names
+
+    def _compute_global_tag_names_suport(self):
+        for r in self:
+            r.global_tag_names_suport = False
